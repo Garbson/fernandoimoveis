@@ -47,11 +47,11 @@ export default function PortoBeloSection() {
       ctx = gsap.context(() => {
         gsap.from('.porto-head > *', {
           y: 26, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: '#porto-belo', start: 'top 85%', once: true },
+          scrollTrigger: { trigger: '#porto-belo', start: 'top 95%', once: true, invalidateOnRefresh: true },
         });
         gsap.from('.porto-stage', {
           y: 26, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: '.porto-stage', start: 'top 88%', once: true },
+          scrollTrigger: { trigger: '.porto-stage', start: 'top 95%', once: true, invalidateOnRefresh: true },
         });
         gsap.from('.porto-invest > *', {
           y: 24, duration: 0.8, stagger: 0.08, ease: 'power3.out',
