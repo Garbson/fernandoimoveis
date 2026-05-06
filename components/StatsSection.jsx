@@ -25,13 +25,14 @@ export default function StatsSection() {
           const target = parseInt(numEl?.dataset.count || '0', 10);
 
           gsap.fromTo(item,
-            { y: 30, scale: 0.98 },
+            { y: 44, opacity: 0, scale: 0.94 },
             {
               y: 0,
+              opacity: 1,
               scale: 1,
-              duration: 0.75,
-              ease: 'power3.out',
-              delay: i * 0.05,
+              duration: 0.9,
+              ease: 'power4.out',
+              delay: i * 0.12,
               scrollTrigger: { trigger: item, start: 'top 90%', once: true },
             }
           );
@@ -64,19 +65,19 @@ export default function StatsSection() {
               <div className="stat-item text-center py-5 px-5">
                 <div className="flex items-baseline justify-center gap-1 mb-3">
                   {s.prefix && (
-                    <span className="font-display text-gold font-light" style={{ fontSize: 'clamp(20px,2.5vw,28px)' }}>
+                    <span className="font-display text-gold font-semibold" style={{ fontSize: 'clamp(20px,2.5vw,28px)' }}>
                       {s.prefix}
                     </span>
                   )}
                   <span
-                    className="stat-num font-display text-creme font-light leading-none tracking-tight"
+                    className="stat-num font-display text-creme font-bold leading-none tracking-tight"
                     style={{ fontSize: 'clamp(52px,7vw,88px)' }}
                     data-count={s.count}
                   >
                     0
                   </span>
                   {s.suffix && (
-                    <span className="font-display text-gold font-light" style={{ fontSize: 'clamp(28px,3.5vw,44px)' }}>
+                    <span className="font-display text-gold font-semibold" style={{ fontSize: 'clamp(28px,3.5vw,44px)' }}>
                       {s.suffix}
                     </span>
                   )}

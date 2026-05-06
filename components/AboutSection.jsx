@@ -18,12 +18,12 @@ export default function AboutSection() {
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
         gsap.from('.about-photo', {
-          y: 30, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: '#sobre', start: 'top 85%', once: true },
+          y: 70, opacity: 0, scale: 0.95, duration: 1.2, ease: 'power4.out',
+          scrollTrigger: { trigger: '#sobre', start: 'top 80%', once: true },
         });
         gsap.from('.about-text > *', {
-          y: 30, duration: 0.9, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: '#sobre', start: 'top 85%', once: true },
+          y: 48, opacity: 0, duration: 1, stagger: 0.13, ease: 'power4.out',
+          scrollTrigger: { trigger: '#sobre', start: 'top 80%', once: true },
         });
       }, sectionRef);
     };

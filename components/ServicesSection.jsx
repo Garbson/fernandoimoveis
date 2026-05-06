@@ -41,8 +41,8 @@ function ServiceCard({ titleKey, descKey, featured, icon, mobile = false }) {
           ? 'flex-shrink-0 snap-center w-[82vw] p-8'
           : 'svc-card group p-[clamp(28px,3vw,40px)] hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,.4)]'}
         ${featured
-          ? 'bg-verde-dk border-verde-lt/50 hover:border-verde-lt'
-          : 'bg-ink-2 border-white/[0.06] hover:border-verde/40'}
+          ? 'glass-verde border-verde-lt/45 hover:border-verde-lt'
+          : 'glass border-white/10 hover:border-white/25'}
       `}
     >
       {!mobile && (
@@ -84,11 +84,11 @@ export default function ServicesSection() {
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
         gsap.from('.section-header-srv > *', {
-          y: 30, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+          y: 36, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power4.out',
           scrollTrigger: { trigger: '#servicos', start: 'top 85%', once: true },
         });
         gsap.from('.svc-card', {
-          y: 40, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+          y: 56, opacity: 0, scale: 0.95, duration: 0.9, stagger: 0.16, ease: 'power4.out',
           scrollTrigger: { trigger: '.svc-grid', start: 'top 85%', once: true },
         });
       }, sectionRef);

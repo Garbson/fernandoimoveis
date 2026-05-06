@@ -25,16 +25,16 @@ export default function HeroSection() {
       }, 100);
 
       ctx = gsap.context(() => {
-        // Sem opacity:0 — texto sempre visível, só anima posição
         const tl = gsap.timeline({ delay: 0.1, defaults: { ease: 'power4.out' } });
-        tl.from('.hero-eyebrow',    { y: 20, duration: 0.6 })
-          .from('.h1-line > *',     { y: 50, duration: 0.7, stagger: 0.1, skewY: 1.5 }, 0.2)
-          .from('.hero-desc',       { y: 18, duration: 0.6 }, 0.5)
-          .from('.hero-action',     { y: 14, duration: 0.5, stagger: 0.08 }, 0.7)
-          .from('.hero-trust-item', { y: 10, duration: 0.4, stagger: 0.06 }, 0.85)
-          .from('.hero-badge',      { x: -25, opacity: 0, duration: 0.7, ease: 'back.out(1.7)' }, 0.95)
-          .from('.hero-float-card', { x: 25,  opacity: 0, duration: 0.7, ease: 'back.out(1.7)' }, 1.05)
-          .from('.hero-scroll-hint',{ opacity: 0, duration: 0.5 }, 1.3);
+        tl.from('.hero-eyebrow',    { y: 24, opacity: 0, duration: 0.7 })
+          .from('.h1-line > *',     { y: 64, opacity: 0, duration: 0.8, stagger: 0.12, skewY: 2 }, 0.18)
+          .from('.hero-desc',       { y: 28, opacity: 0, duration: 0.7 }, 0.48)
+          .from('.hero-action',     { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 }, 0.66)
+          .from('.hero-trust-item', { y: 14, opacity: 0, duration: 0.5, stagger: 0.08 }, 0.82)
+          .from('.hero-img',        { scale: 1.06, duration: 1.4, ease: 'power3.out' }, 0.05)
+          .from('.hero-badge',      { y: 20, opacity: 0, duration: 0.8, ease: 'back.out(1.7)' }, 0.9)
+          .from('.hero-float-card', { y: -20, opacity: 0, duration: 0.8, ease: 'back.out(1.7)' }, 1.0)
+          .from('.hero-scroll-hint',{ opacity: 0, duration: 0.6 }, 1.3);
 
         gsap.fromTo('.hero-badge-num',
           { textContent: 0 },
@@ -83,8 +83,8 @@ export default function HeroSection() {
               {t('hero_eyebrow')}
             </p>
 
-            <h1 className="font-display text-creme font-bold leading-[1.05] tracking-tight mb-7"
-                style={{ fontSize: 'clamp(44px,6vw,80px)' }}>
+            <h1 className="font-display text-creme font-bold leading-[1.06] tracking-tight mb-7"
+                style={{ fontSize: 'clamp(34px,4.5vw,62px)' }}>
               <span className="h1-line block overflow-hidden">
                 <span>{t('hero_title_1')}</span>
               </span>
@@ -133,7 +133,7 @@ export default function HeroSection() {
                   alt="Fernando Pegoraro — Corretor de Imóveis"
                   width={480} height={640}
                   priority
-                  className="hero-img w-full object-cover object-top aspect-[3/4] brightness-95 saturate-90 transition-all hover:brightness-100 hover:saturate-100"
+                  className="hero-img w-full object-cover object-top aspect-[3/4] brightness-95 saturate-[0.92] transition-all hover:brightness-100 hover:saturate-100"
                 />
               </div>
 
@@ -141,7 +141,7 @@ export default function HeroSection() {
               <div className="hidden sm:block absolute top-[-16px] right-[-16px] bottom-4 left-4 border border-gold/25 rounded-2xl pointer-events-none -z-10" />
 
               {/* Badge */}
-              <div className="hero-badge hidden sm:block absolute bottom-8 left-[-28px] bg-ink-2 border border-gold/30 rounded-2xl px-5 py-4 text-center backdrop-blur-md">
+              <div className="hero-badge hidden sm:block absolute bottom-8 left-[-28px] glass-warm border border-gold/30 rounded-2xl px-5 py-4 text-center">
                 <div className="animate-badge-ring absolute inset-[-4px] border border-gold/15 rounded-[18px]" />
                 <span
                   className="hero-badge-num block font-display text-[36px] font-semibold text-gold leading-none stat-num"
@@ -153,7 +153,7 @@ export default function HeroSection() {
               </div>
 
               {/* Float card */}
-              <div className="hero-float-card animate-float-card absolute top-9 right-[-24px] bg-verde-dk border border-verde-lt/40 rounded-xl px-[18px] py-3.5 flex items-center gap-3 backdrop-blur-md max-sm:hidden">
+              <div className="hero-float-card animate-float-card absolute top-9 right-[-24px] glass-verde border border-verde-lt/40 rounded-xl px-[18px] py-3.5 flex items-center gap-3 max-sm:hidden">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4975A" strokeWidth="1.5">
                   <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
