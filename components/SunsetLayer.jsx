@@ -42,8 +42,8 @@ export default function SunsetLayer() {
       /* Praia avermelhada */
       gsap.to('#bg-beach-s', { opacity: 0.65, scrollTrigger: st });
 
-      /* Escurecimento noturno — leve */
-      gsap.to('#bg-dusk', { opacity: 0.35, scrollTrigger: st });
+      /* Escurecimento noturno — mínimo */
+      gsap.to('#bg-dusk', { opacity: 0.18, scrollTrigger: st });
 
       /* Luzes da cidade acendem na noite */
       gsap.to('#bg-city-lights', {
@@ -73,11 +73,11 @@ export default function SunsetLayer() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Céu base — verde-escuro visível mas não tão escuro */}
+          {/* Céu base — verde médio, mais claro */}
           <linearGradient id="bg-sky-base" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#122518" />
-            <stop offset="45%"  stopColor="#1c3d24" />
-            <stop offset="100%" stopColor="#235530" />
+            <stop offset="0%"   stopColor="#1a3a22" />
+            <stop offset="45%"  stopColor="#265c30" />
+            <stop offset="100%" stopColor="#2e7040" />
           </linearGradient>
 
           {/* Céu pôr do sol — saturado */}
@@ -122,10 +122,10 @@ export default function SunsetLayer() {
             <stop offset="100%" stopColor="#c03010" stopOpacity="0" />
           </radialGradient>
 
-          {/* Vinheta muito suave — apenas nas bordas */}
+          {/* Vinheta mínima — quase invisível */}
           <radialGradient id="bg-vignette" cx="50%" cy="44%" r="75%">
-            <stop offset="40%"  stopColor="transparent" />
-            <stop offset="100%" stopColor="#020603" stopOpacity="0.28" />
+            <stop offset="60%"  stopColor="transparent" />
+            <stop offset="100%" stopColor="#020603" stopOpacity="0.12" />
           </radialGradient>
 
           {/* Blur para halos */}
