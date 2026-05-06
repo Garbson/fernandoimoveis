@@ -57,7 +57,7 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section id="stats" ref={sectionRef} className="bg-ink/40 py-20">
+    <section id="stats" ref={sectionRef} className="py-20">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-0">
           {STATS.map((s, i) => (

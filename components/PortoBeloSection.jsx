@@ -98,7 +98,7 @@ export default function PortoBeloSection() {
   };
 
   return (
-    <section id="porto-belo" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/55 overflow-x-hidden">
+    <section id="porto-belo" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] overflow-x-hidden">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
 
         {/* Header */}
@@ -106,11 +106,11 @@ export default function PortoBeloSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
             {t('porto_tag')}
           </p>
-          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-4"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-creme mb-4"
               style={{ fontSize: 'clamp(32px,4.4vw,52px)' }}>
             {t('porto_title')}
           </h2>
-          <p className="text-base leading-relaxed text-muted max-w-[760px] mx-auto">{t('porto_subtitle')}</p>
+          <p className="text-base leading-relaxed text-creme/60 max-w-[760px] mx-auto">{t('porto_subtitle')}</p>
         </div>
 
         {/* ── 3D Deck Stage ── */}
@@ -120,7 +120,7 @@ export default function PortoBeloSection() {
           onTouchEnd={onTouchEnd}
         >
           {/* Mobile swipe hint */}
-          <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-7 flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-ink/40 pointer-events-none select-none">
+          <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-7 flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-creme/40 pointer-events-none select-none">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="-scale-x-100">
               <path d="M19 12H5M12 5l-7 7 7 7"/>
             </svg>
@@ -178,7 +178,7 @@ export default function PortoBeloSection() {
               key={i}
               type="button"
               onClick={() => goTo(i)}
-              className={`h-1.5 rounded-full transition-all ${i === active ? 'w-8 bg-verde' : 'w-3 bg-black/20 hover:bg-black/35'}`}
+              className={`h-1.5 rounded-full transition-all ${i === active ? 'w-8 bg-verde' : 'w-3 bg-white/25 hover:bg-white/45'}`}
               aria-label={`foto ${i + 1}`}
             />
           ))}
@@ -187,8 +187,8 @@ export default function PortoBeloSection() {
         {/* Investment highlights */}
         <div className="porto-invest max-w-[980px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-3.5">
           {['porto_inv_1', 'porto_inv_2', 'porto_inv_3'].map((k) => (
-            <div key={k} className="rounded-xl border border-black/10 bg-white/75 backdrop-blur-sm px-5 py-4">
-              <p className="text-sm text-ink/80 leading-relaxed">{t(k)}</p>
+            <div key={k} className="glass rounded-xl border border-white/15 px-5 py-4">
+              <p className="text-sm text-creme/75 leading-relaxed">{t(k)}</p>
             </div>
           ))}
         </div>

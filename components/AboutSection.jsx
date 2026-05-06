@@ -32,7 +32,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="sobre" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/55">
+    <section id="sobre" ref={sectionRef} className="py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(40px,7vw,100px)] items-center max-w-[580px] lg:max-w-none mx-auto">
 
@@ -61,12 +61,12 @@ export default function AboutSection() {
             <p className="section-tag flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
               {t('about_tag')}
             </p>
-            <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-7"
+            <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-creme mb-7"
                 style={{ fontSize: 'clamp(32px,4.5vw,52px)' }}>
               {t('about_title')}
             </h2>
             {['about_p1','about_p2','about_p3'].map(k => (
-              <p key={k} className="text-[15px] leading-[1.75] text-muted mb-4 last-of-type:mb-9">
+              <p key={k} className="text-[15px] leading-[1.75] text-creme/60 mb-4 last-of-type:mb-9">
                 {t(k)}
               </p>
             ))}

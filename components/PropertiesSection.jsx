@@ -176,7 +176,7 @@ export default function PropertiesSection() {
   const activeAlbum = ALBUMS[active];
 
   return (
-    <section id="empreendimentos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/55 overflow-x-hidden">
+    <section id="empreendimentos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] overflow-x-hidden">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
 
         {/* Header */}
@@ -184,11 +184,11 @@ export default function PropertiesSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
             {t('prop_tag')}
           </p>
-          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-4"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-creme mb-4"
               style={{ fontSize: 'clamp(32px,4.5vw,52px)' }}>
             {t('prop_title')}
           </h2>
-          <p className="text-base leading-relaxed text-muted max-w-[600px] mx-auto">{t('prop_subtitle')}</p>
+          <p className="text-base leading-relaxed text-creme/60 max-w-[600px] mx-auto">{t('prop_subtitle')}</p>
         </div>
 
         {/* ── 3D Deck Stage ── */}
@@ -198,7 +198,7 @@ export default function PropertiesSection() {
           onTouchEnd={onTouchEnd}
         >
           {/* Mobile swipe hint — shows only on first render on touch screens */}
-          <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-7 flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-muted/60 pointer-events-none select-none">
+          <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-7 flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-creme/40 pointer-events-none select-none">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="-scale-x-100">
               <path d="M19 12H5M12 5l-7 7 7 7"/>
             </svg>
@@ -277,26 +277,26 @@ export default function PropertiesSection() {
               key={album.id}
               type="button"
               onClick={() => goTo(i)}
-              className={`h-1.5 rounded-full transition-all ${i === active ? 'w-8 bg-verde' : 'w-3 bg-black/20 hover:bg-black/35'}`}
+              className={`h-1.5 rounded-full transition-all ${i === active ? 'w-8 bg-verde' : 'w-3 bg-white/25 hover:bg-white/45'}`}
               aria-label={`empreendimento ${i + 1}`}
             />
           ))}
         </div>
 
         {/* Detail card */}
-        <div className="prop-detail-card max-w-[920px] mx-auto bg-white border border-black/10 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,.08)] p-6 sm:p-8 mb-10">
+        <div className="prop-detail-card max-w-[920px] mx-auto glass border border-white/15 rounded-2xl p-6 sm:p-8 mb-10">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <span className="text-[10px] font-semibold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full bg-verde text-creme">
               {t('prop_badge_featured')}
             </span>
             <span className="text-sm font-medium text-gold">{t(activeAlbum.priceKey)}</span>
           </div>
-          <h3 className="font-display text-[clamp(22px,3vw,36px)] leading-tight text-ink mb-2">{activeAlbum.title}</h3>
-          <div className="flex items-center gap-1.5 text-[12px] tracking-wider uppercase text-muted mb-3">
+          <h3 className="font-display text-[clamp(22px,3vw,36px)] leading-tight text-creme mb-2">{activeAlbum.title}</h3>
+          <div className="flex items-center gap-1.5 text-[12px] tracking-wider uppercase text-creme/55 mb-3">
             <PinIcon size={13} />{t(activeAlbum.locKey)}
           </div>
-          <p className="text-sm text-muted mb-1">{t(activeAlbum.typeKey)}</p>
-          <p className="text-[15px] leading-relaxed text-ink/85 mb-6">{t(activeAlbum.descKey)}</p>
+          <p className="text-sm text-creme/55 mb-1">{t(activeAlbum.typeKey)}</p>
+          <p className="text-[15px] leading-relaxed text-creme/75 mb-6">{t(activeAlbum.descKey)}</p>
           <a href={WA} target="_blank" rel="noopener noreferrer"
              className="inline-flex items-center gap-2.5 bg-verde text-creme text-sm font-medium tracking-wide px-7 py-3.5 rounded-lg border border-verde transition-all hover:bg-verde-mid hover:-translate-y-0.5">
             {t('prop_cta')}

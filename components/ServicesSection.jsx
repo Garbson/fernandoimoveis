@@ -118,7 +118,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="servicos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-ink/40 overflow-hidden">
+    <section id="servicos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] overflow-hidden">
 
       {/* Header — always centred */}
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">

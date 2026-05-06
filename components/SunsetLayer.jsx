@@ -39,18 +39,22 @@ export default function SunsetLayer() {
       /* Mar vira espelho */
       gsap.to('#bg-sea-s', { opacity: 0.9, scrollTrigger: st });
 
-      /* Reflexo cresce */
-      gsap.to('#bg-refl', {
-        attr: { ry: 170, rx: 34, cy: 615 },
-        opacity: 0.75,
-        scrollTrigger: st,
-      });
-
       /* Praia avermelhada */
       gsap.to('#bg-beach-s', { opacity: 0.65, scrollTrigger: st });
 
       /* Escurecimento noturno */
-      gsap.to('#bg-dusk', { opacity: 0.5, scrollTrigger: st });
+      gsap.to('#bg-dusk', { opacity: 0.55, scrollTrigger: st });
+
+      /* Luzes da cidade acendem na noite */
+      gsap.to('#bg-city-lights', {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: '62% top',
+          end: '88% top',
+          scrub: 1,
+        },
+      });
     };
 
     run();
@@ -69,7 +73,7 @@ export default function SunsetLayer() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Céu base — verde médio (mais visível que preto) */}
+          {/* Céu base — verde médio */}
           <linearGradient id="bg-sky-base" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%"   stopColor="#0d1f10" />
             <stop offset="45%"  stopColor="#173520" />
@@ -111,13 +115,6 @@ export default function SunsetLayer() {
             <stop offset="100%" stopColor="#e02808" stopOpacity="0" />
           </radialGradient>
 
-          {/* Reflexo do sol no mar */}
-          <linearGradient id="bg-refl-g" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#F0B060" stopOpacity="0.8" />
-            <stop offset="60%"  stopColor="#C4975A" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#C4975A" stopOpacity="0" />
-          </linearGradient>
-
           {/* Brilho horizonte */}
           <radialGradient id="bg-horiz-g" cx="50%" cy="100%" r="60%">
             <stop offset="0%"   stopColor="#f04010" stopOpacity="0.85" />
@@ -125,7 +122,7 @@ export default function SunsetLayer() {
             <stop offset="100%" stopColor="#c03010" stopOpacity="0" />
           </radialGradient>
 
-          {/* Vinheta suave (reduzida para não esconder SVG) */}
+          {/* Vinheta suave */}
           <radialGradient id="bg-vignette" cx="50%" cy="44%" r="72%">
             <stop offset="30%"  stopColor="transparent" />
             <stop offset="100%" stopColor="#030803" stopOpacity="0.55" />
@@ -164,6 +161,162 @@ export default function SunsetLayer() {
         <ellipse id="bg-horiz" cx="720" cy="592" rx="640" ry="110"
           fill="url(#bg-horiz-g)" opacity="0" />
 
+        {/* ── Prédios — cluster esquerdo ── */}
+        <g fill="#0a1810">
+          {/* cluster esquerdo */}
+          <rect x="40"  y="505" width="28" height="91" />
+          <rect x="72"  y="482" width="22" height="114" />
+          <rect x="98"  y="495" width="32" height="101" />
+          <rect x="134" y="468" width="20" height="128" />
+          <rect x="158" y="488" width="26" height="108" />
+          <rect x="188" y="510" width="18" height="86" />
+          <rect x="210" y="475" width="24" height="121" />
+
+          {/* cluster central */}
+          <rect x="530" y="478" width="26" height="118" />
+          <rect x="560" y="450" width="30" height="146" />
+          <rect x="594" y="430" width="24" height="166" />
+          <rect x="622" y="412" width="36" height="184" />
+          <rect x="662" y="395" width="28" height="201" />
+          <rect x="694" y="340" width="32" height="256" />  {/* arranha-céu centro */}
+          <rect x="730" y="355" width="30" height="241" />
+          <rect x="764" y="378" width="28" height="218" />
+          <rect x="796" y="400" width="34" height="196" />
+          <rect x="834" y="425" width="22" height="171" />
+          <rect x="860" y="448" width="26" height="148" />
+          <rect x="890" y="465" width="20" height="131" />
+
+          {/* cluster direito */}
+          <rect x="1120" y="480" width="24" height="116" />
+          <rect x="1148" y="462" width="30" height="134" />
+          <rect x="1182" y="440" width="22" height="156" />
+          <rect x="1208" y="455" width="28" height="141" />
+          <rect x="1240" y="468" width="20" height="128" />
+          <rect x="1264" y="488" width="26" height="108" />
+          <rect x="1294" y="505" width="30" height="91" />
+          <rect x="1328" y="475" width="22" height="121" />
+          <rect x="1354" y="495" width="28" height="101" />
+          <rect x="1386" y="510" width="32" height="86" />
+        </g>
+
+        {/* ── Luzes da cidade (opacity 0 → 1 com a noite) ── */}
+        <g id="bg-city-lights" opacity="0">
+          {/* cluster esquerdo */}
+          <rect x="44"  y="510" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="52"  y="516" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="44"  y="522" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="76"  y="488" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="76"  y="498" width="4" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="84"  y="505" width="4" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="102" y="500" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="110" y="508" width="5" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="102" y="516" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="138" y="475" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="146" y="483" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="138" y="491" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="138" y="502" width="4" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="162" y="494" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="170" y="502" width="4" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="162" y="510" width="4" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="214" y="480" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="222" y="488" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="214" y="496" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="222" y="504" width="4" height="3" fill="#FFD580" opacity="0.7" />
+
+          {/* cluster central */}
+          <rect x="534" y="484" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="542" y="492" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="534" y="500" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="564" y="456" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="572" y="465" width="5" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="564" y="474" width="5" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="564" y="483" width="5" height="3" fill="#FFD580" opacity="0.85" />
+          <rect x="598" y="436" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="606" y="445" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="598" y="454" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="606" y="463" width="5" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="598" y="472" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="626" y="418" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="636" y="427" width="6" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="626" y="436" width="6" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="636" y="445" width="6" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="626" y="454" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="636" y="463" width="6" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="666" y="400" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="674" y="410" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="666" y="420" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="674" y="430" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="666" y="440" width="5" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="674" y="450" width="5" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="666" y="460" width="5" height="3" fill="#FFD580" opacity="0.85" />
+          {/* arranha-céu central */}
+          <rect x="698" y="346" width="6" height="3" fill="#FFE090" opacity="0.95" />
+          <rect x="708" y="356" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="698" y="366" width="6" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="708" y="376" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="698" y="386" width="6" height="3" fill="#FFE090" opacity="0.95" />
+          <rect x="708" y="396" width="6" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="698" y="406" width="6" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="708" y="416" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="698" y="426" width="6" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="708" y="436" width="6" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="698" y="446" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="734" y="362" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="742" y="372" width="5" height="3" fill="#FFE090" opacity="0.95" />
+          <rect x="734" y="382" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="742" y="392" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="734" y="402" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="742" y="412" width="5" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="734" y="422" width="5" height="3" fill="#FFA040" opacity="0.8" />
+          <rect x="768" y="385" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="776" y="395" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="768" y="405" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="776" y="415" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="768" y="425" width="5" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="800" y="406" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="810" y="415" width="6" height="3" fill="#FFE090" opacity="0.95" />
+          <rect x="800" y="424" width="6" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="810" y="433" width="6" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="800" y="442" width="6" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="864" y="452" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="872" y="460" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="864" y="468" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="894" y="470" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="902" y="478" width="4" height="3" fill="#FFD580" opacity="0.8" />
+
+          {/* cluster direito */}
+          <rect x="1124" y="487" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1132" y="495" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1124" y="503" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1152" y="468" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1160" y="477" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1152" y="486" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1160" y="495" width="5" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="1186" y="446" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1194" y="455" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1186" y="464" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1194" y="473" width="4" height="3" fill="#FFD580" opacity="0.75" />
+          <rect x="1186" y="482" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1212" y="460" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1220" y="468" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1212" y="477" width="5" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1220" y="486" width="5" height="3" fill="#FFD580" opacity="0.7" />
+          <rect x="1244" y="473" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1252" y="481" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1244" y="489" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1268" y="493" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1276" y="501" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1298" y="510" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1308" y="518" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1332" y="480" width="4" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1340" y="488" width="4" height="3" fill="#FFA040" opacity="0.85" />
+          <rect x="1332" y="496" width="4" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1358" y="500" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1366" y="508" width="5" height="3" fill="#FFD580" opacity="0.8" />
+          <rect x="1390" y="515" width="5" height="3" fill="#FFD580" opacity="0.9" />
+          <rect x="1400" y="523" width="5" height="3" fill="#FFD580" opacity="0.8" />
+        </g>
+
         {/* ── Serras base ── */}
         <path
           d="M0,548 Q90,505 215,532 Q310,500 450,528
@@ -196,10 +349,6 @@ export default function SunsetLayer() {
         <rect id="bg-sea-s" x="0" y="592" width="1440" height="308"
           fill="url(#bg-sea-sunset)" opacity="0" />
 
-        {/* ── Reflexo do sol ── */}
-        <ellipse id="bg-refl" cx="720" cy="660" rx="16" ry="68"
-          fill="url(#bg-refl-g)" opacity="0.12" />
-
         {/* ── Ondas ── */}
         <g stroke="#2a5a50" strokeWidth="0.8" fill="none" opacity="0.3">
           <path d="M0,622 Q240,615 480,622 Q720,629 960,622 Q1200,615 1440,622" />
@@ -227,7 +376,7 @@ export default function SunsetLayer() {
           opacity="0"
         />
 
-        {/* ── Noite chegando (opacity 0 → 0.5) ── */}
+        {/* ── Noite chegando (opacity 0 → 0.55) ── */}
         <rect id="bg-dusk" width="1440" height="900" fill="#020504" opacity="0" />
 
         {/* ── Vinheta suave ── */}

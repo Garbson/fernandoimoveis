@@ -33,7 +33,7 @@ export default function ContactSection() {
     <section
       id="contato"
       ref={sectionRef}
-      className="py-[clamp(80px,10vw,140px)] bg-creme-3/55"
+      className="py-[clamp(80px,10vw,140px)]"
     >
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="max-w-[600px] mx-auto">
@@ -43,7 +43,7 @@ export default function ContactSection() {
               {t("contact_tag")}
             </p>
             <h2
-              className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-10"
+              className="font-display font-semibold leading-[1.12] tracking-tight text-creme mb-10"
               style={{ fontSize: "clamp(28px,4vw,48px)" }}
             >
               {t("contact_title")}
@@ -57,18 +57,18 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 rounded-xl border bg-[rgba(37,209,102,.05)] border-[rgba(37,209,102,.2)] transition-all hover:translate-x-1.5 hover:shadow-[0_8px_24px_rgba(37,209,102,.1)]"
               >
-                <div className="w-11 h-11 rounded-lg bg-black/[0.04] flex items-center justify-center text-[#25d166] flex-shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-white/[0.08] flex items-center justify-center text-[#25d166] flex-shrink-0">
                   <WaIcon size={22} />
                 </div>
                 <div className="flex-1">
-                  <span className="block text-[11px] tracking-widest uppercase text-muted mb-1">
+                  <span className="block text-[11px] tracking-widest uppercase text-creme/55 mb-1">
                     {t("contact_wa")}
                   </span>
-                  <span className="block text-base font-medium text-ink">
+                  <span className="block text-base font-medium text-creme">
                     (47) 9751-8960
                   </span>
                 </div>
-                <ArrowIcon size={16} className="text-muted flex-shrink-0" />
+                <ArrowIcon size={16} className="text-creme/55 flex-shrink-0" />
               </a>
 
               <a
@@ -77,25 +77,25 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 rounded-xl border bg-[rgba(196,151,90,.05)] border-[rgba(196,151,90,.2)] transition-all hover:translate-x-1.5 hover:shadow-[0_8px_24px_rgba(196,151,90,.1)]"
               >
-                <div className="w-11 h-11 rounded-lg bg-black/[0.04] flex items-center justify-center text-gold flex-shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-white/[0.08] flex items-center justify-center text-gold flex-shrink-0">
                   <IgIcon size={22} />
                 </div>
                 <div className="flex-1">
-                  <span className="block text-[11px] tracking-widest uppercase text-muted mb-1">
+                  <span className="block text-[11px] tracking-widest uppercase text-creme/55 mb-1">
                     {t("contact_ig")}
                   </span>
-                  <span className="block text-base font-medium text-ink">
+                  <span className="block text-base font-medium text-creme">
                     @fernandopegoraro_
                   </span>
                 </div>
-                <ArrowIcon size={16} className="text-muted flex-shrink-0" />
+                <ArrowIcon size={16} className="text-creme/55 flex-shrink-0" />
               </a>
 
-              <div className="pt-5 border-t border-black/[0.06]">
-                <span className="block text-[11px] tracking-widest uppercase text-muted mb-1.5">
+              <div className="pt-5 border-t border-white/[0.12]">
+                <span className="block text-[11px] tracking-widest uppercase text-creme/55 mb-1.5">
                   {t("contact_region_label")}
                 </span>
-                <span className="text-[15px] font-medium text-ink">
+                <span className="text-[15px] font-medium text-creme">
                   {t("contact_region_value")}
                 </span>
               </div>
