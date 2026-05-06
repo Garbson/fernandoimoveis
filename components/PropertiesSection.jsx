@@ -176,7 +176,7 @@ export default function PropertiesSection() {
   const activeAlbum = ALBUMS[active];
 
   return (
-    <section id="empreendimentos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-2 overflow-x-hidden">
+    <section id="empreendimentos" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/88 overflow-x-hidden">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
 
         {/* Header */}

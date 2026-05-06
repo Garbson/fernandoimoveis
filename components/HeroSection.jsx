@@ -65,13 +65,8 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen bg-ink flex items-center overflow-hidden pt-[140px] pb-20"
+      className="relative min-h-screen flex items-center overflow-hidden pt-[140px] pb-20"
     >
-      {/* Orbs */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="animate-orb-1 absolute w-[600px] h-[600px] rounded-full bg-verde opacity-20 blur-[100px] -top-[10%] -right-[5%]" />
-        <div className="animate-orb-2 absolute w-[400px] h-[400px] rounded-full bg-gold opacity-15 blur-[100px] -bottom-[10%] left-[5%]" />
-      </div>
 
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)] relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(40px,6vw,100px)] items-center">

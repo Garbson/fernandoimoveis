@@ -31,7 +31,7 @@ export default function FaqSection() {
   const items = [1, 2, 3, 4];
 
   return (
-    <section id="duvidas" ref={sectionRef} className="relative py-[clamp(80px,10vw,140px)] bg-ink overflow-hidden">
+    <section id="duvidas" ref={sectionRef} className="relative py-[clamp(80px,10vw,140px)] bg-ink/75 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute -top-24 -left-20 w-[360px] h-[360px] rounded-full bg-verde/20 blur-[120px]" />
         <div className="absolute -bottom-24 -right-20 w-[380px] h-[380px] rounded-full bg-gold/15 blur-[130px]" />

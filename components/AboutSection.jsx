@@ -32,7 +32,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="sobre" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3">
+    <section id="sobre" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/85">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(40px,7vw,100px)] items-center max-w-[580px] lg:max-w-none mx-auto">
 
