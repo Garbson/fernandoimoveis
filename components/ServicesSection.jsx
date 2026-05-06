@@ -38,7 +38,7 @@ function ServiceCard({ titleKey, descKey, featured, icon, mobile = false }) {
       className={`
         relative overflow-hidden rounded-2xl border transition-all duration-500
         ${mobile
-          ? 'flex-shrink-0 snap-center w-[82vw] p-8'
+          ? 'w-full p-7 min-h-[260px]'
           : 'svc-card group p-[clamp(28px,3vw,40px)] hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,.4)]'}
         ${featured
           ? 'glass-verde border-verde-lt/45 hover:border-verde-lt'
@@ -84,22 +84,12 @@ export default function ServicesSection() {
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
         gsap.from('.section-header-srv > *', {
-          y: 36, autoAlpha: 0, duration: 0.8, stagger: 0.12, ease: 'power4.out',
-          scrollTrigger: {
-            trigger: '#servicos',
-            start: 'top 95%',
-            once: true,
-            invalidateOnRefresh: true,
-          },
+          y: 32, duration: 0.7, stagger: 0.12, ease: 'power3.out',
+          scrollTrigger: { trigger: '#servicos', start: 'top bottom', once: true },
         });
         gsap.from('.svc-card', {
-          y: 56, autoAlpha: 0, scale: 0.95, duration: 0.9, stagger: 0.16, ease: 'power4.out',
-          scrollTrigger: {
-            trigger: '.svc-grid',
-            start: 'top 95%',
-            once: true,
-            invalidateOnRefresh: true,
-          },
+          y: 48, duration: 0.8, stagger: 0.14, ease: 'power3.out',
+          scrollTrigger: { trigger: '.svc-grid', start: 'top bottom', once: true },
         });
       }, sectionRef);
     };
@@ -151,7 +141,7 @@ export default function ServicesSection() {
           className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory gap-4 px-[clamp(20px,5vw,80px)]"
         >
           {SERVICES.map(({ titleKey, descKey, featured, icon }) => (
-            <div key={titleKey} className="svc-mobile-card snap-center flex-shrink-0 w-[82vw]">
+            <div key={titleKey} className="svc-mobile-card snap-center flex-shrink-0 w-[80vw]">
               <ServiceCard titleKey={titleKey} descKey={descKey} featured={featured} icon={icon} mobile />
             </div>
           ))}
