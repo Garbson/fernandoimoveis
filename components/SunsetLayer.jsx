@@ -274,28 +274,7 @@ export default function SunsetLayer() {
             stroke="#123440" strokeWidth="1"/>
         </g>
 
-        {/* ── Praia arenosa ── */}
-        <path
-          d="M0,836 Q200,820 400,832 Q600,844 800,826
-             Q1000,810 1200,826 Q1340,836 1440,822 L1440,900 L0,900 Z"
-          fill="#c8a858"
-          opacity="0.82"
-        />
-        {/* Faixa mais clara na beira da água */}
-        <path
-          d="M0,843 Q240,832 480,840 Q720,848 960,836 Q1200,824 1440,832 L1440,848 Q1200,838 960,850 Q720,862 480,854 Q240,846 0,857 Z"
-          fill="#deba70"
-          opacity="0.35"
-        />
-
-        {/* Praia dourada no pôr do sol */}
-        <path
-          id="bg-beach-s"
-          d="M0,836 Q200,820 400,832 Q600,844 800,826
-             Q1000,810 1200,826 Q1340,836 1440,822 L1440,900 L0,900 Z"
-          fill="#d07830"
-          opacity="0"
-        />
+        {/* ── Praia — renderiza DEPOIS dos prédios para ficar na frente ── */}
 
         {/* ════════════════════════════════════════
             LUZES DA CIDADE
@@ -416,59 +395,51 @@ export default function SunsetLayer() {
           <rect x="1414" y="528" width="5" height="3" fill="#FFD580" opacity="0.8" />
         </g>
 
-        {/* ── Linha horizonte ── */}
-        <line x1="0" y1="592" x2="1440" y2="592"
-          stroke="#90C8E0" strokeWidth="0.8" opacity="0.2" />
-
         {/* ════════════════════════════════════════
-            PALMEIRAS — tronco preenchido + frondes largas
-            Cada palmeira: [baseX, crownX, crownY]
+            PRAIA — depois dos prédios no z-order:
+            aparece NA FRENTE deles, dando a ilusão
+            de prédios na beira da praia com vista pro mar.
+            A faixa de mar fica visível entre y=592 e y=690.
         ════════════════════════════════════════ */}
-        {[
-          [175, 194, 738],   // esq — inclina direita
-          [315, 308, 752],   // esq — inclina esq, menor
-          [510, 514, 730],   // centro-esq — reta, mais alta
-          [930, 926, 732],   // centro-dir — reta, mais alta
-          [1125, 1130, 750], // dir — inclina dir, menor
-          [1295, 1310, 738], // dir — inclina direita
-        ].map(([bx, cx, cy], i) => {
-          const by = 900;
-          const mx = Math.round((bx + cx) / 2);
-          const my = Math.round((cy + by) / 2);
-          // tronco: path preenchido cônico, base ~14px, topo ~7px
-          const trunk = `M${bx-7},${by} Q${mx-4},${my} ${cx-3},${cy+6} L${cx+4},${cy+4} Q${mx+5},${my} ${bx+7},${by} Z`;
-          // frondes [controle dx, controle dy, ponta dx, ponta dy, espessura]
-          const fronds = [
-            [-26,-28,-56,-46, 13], // cima-esq
-            [  2,-30,  2,-52, 14], // cima centro
-            [ 28,-28, 58,-46, 13], // cima-dir
-            [ 48, -8, 88,  6, 12], // dir horizontal
-            [ 50, 10, 88, 26, 11], // dir para baixo
-            [-48, -8,-88,  6, 12], // esq horizontal
-            [-50, 10,-88, 26, 11], // esq para baixo
-          ];
-          return (
-            <g key={i}>
-              {/* Tronco preenchido */}
-              <path d={trunk} fill="#1e1008" />
-              {/* Frondes grossas com ponta redonda */}
-              {fronds.map(([qx, qy, tx, ty, sw], fi) => (
-                <path key={fi}
-                  d={`M${cx},${cy} Q${cx+qx},${cy+qy} ${cx+tx},${cy+ty}`}
-                  stroke="#1a3d08" strokeWidth={sw}
-                  strokeLinecap="round" fill="none"
-                />
-              ))}
-              {/* Fronde de baixo — cai atrás do tronco */}
-              <path d={`M${cx},${cy} Q${cx+4},${cy+20} ${cx+2},${cy+44}`}
-                stroke="#162e06" strokeWidth="10" strokeLinecap="round" fill="none"/>
-              {/* Nó do tronco (cocos) */}
-              <ellipse cx={cx} cy={cy+2} rx="7" ry="5" fill="#141008"/>
-              <circle cx={cx-3} cy={cy+5} r="3.5" fill="#0e0c06"/>
-              <circle cx={cx+4} cy={cy+6} r="3" fill="#0e0c06"/>
-            </g>
-          );
-        })}
+
+        {/* Areia principal */}
+        <path
+          d="M0,690 Q160,680 320,686 Q480,692 640,684
+             Q800,676 960,682 Q1120,688 1280,680 Q1380,676 1440,678
+             L1440,900 L0,900 Z"
+          fill="#c4a050"
+          opacity="0.90"
+        />
+
+        {/* Faixa mais clara — beira da água (areia úmida) */}
+        <path
+          d="M0,690 Q160,680 320,686 Q480,692 640,684
+             Q800,676 960,682 Q1120,688 1280,680 Q1380,676 1440,678
+             L1440,706 Q1380,694 1280,698 Q1120,706 960,700
+             Q800,694 640,702 Q480,710 320,704 Q160,698 0,708 Z"
+          fill="#dcc06a"
+          opacity="0.45"
+        />
+
+        {/* Sombra suave na borda superior da praia */}
+        <path
+          d="M0,690 Q160,680 320,686 Q480,692 640,684
+             Q800,676 960,682 Q1120,688 1280,680 Q1380,676 1440,678
+             L1440,700 Q1380,696 1280,698 Q1120,706 960,700
+             Q800,694 640,700 Q480,708 320,702 Q160,696 0,706 Z"
+          fill="#0e1808"
+          opacity="0.18"
+        />
+
+        {/* Praia dourada no pôr do sol */}
+        <path
+          id="bg-beach-s"
+          d="M0,690 Q160,680 320,686 Q480,692 640,684
+             Q800,676 960,682 Q1120,688 1280,680 Q1380,676 1440,678
+             L1440,900 L0,900 Z"
+          fill="#d07830"
+          opacity="0"
+        />
       </svg>
     </div>
   );
