@@ -42,8 +42,8 @@ export default function SunsetLayer() {
       /* Praia avermelhada */
       gsap.to('#bg-beach-s', { opacity: 0.65, scrollTrigger: st });
 
-      /* Escurecimento noturno — mínimo */
-      gsap.to('#bg-dusk', { opacity: 0.18, scrollTrigger: st });
+      /* Escurecimento noturno — desativado para teste */
+      // gsap.to('#bg-dusk', { opacity: 0.18, scrollTrigger: st });
 
       /* Luzes da cidade acendem na noite */
       gsap.to('#bg-city-lights', {
@@ -122,10 +122,10 @@ export default function SunsetLayer() {
             <stop offset="100%" stopColor="#c03010" stopOpacity="0" />
           </radialGradient>
 
-          {/* Vinheta mínima — quase invisível */}
+          {/* Vinheta removida para teste */}
           <radialGradient id="bg-vignette" cx="50%" cy="44%" r="75%">
-            <stop offset="60%"  stopColor="transparent" />
-            <stop offset="100%" stopColor="#020603" stopOpacity="0.12" />
+            <stop offset="0%"  stopColor="transparent" />
+            <stop offset="100%" stopColor="transparent" />
           </radialGradient>
 
           {/* Blur para halos */}
