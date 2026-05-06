@@ -274,20 +274,26 @@ export default function SunsetLayer() {
             stroke="#123440" strokeWidth="1"/>
         </g>
 
-        {/* ── Praia base ── */}
+        {/* ── Praia arenosa ── */}
         <path
           d="M0,836 Q200,820 400,832 Q600,844 800,826
              Q1000,810 1200,826 Q1340,836 1440,822 L1440,900 L0,900 Z"
-          fill="#1e1508"
-          opacity="0.75"
+          fill="#c8a858"
+          opacity="0.82"
+        />
+        {/* Faixa mais clara na beira da água */}
+        <path
+          d="M0,843 Q240,832 480,840 Q720,848 960,836 Q1200,824 1440,832 L1440,848 Q1200,838 960,850 Q720,862 480,854 Q240,846 0,857 Z"
+          fill="#deba70"
+          opacity="0.35"
         />
 
-        {/* Praia avermelhada */}
+        {/* Praia dourada no pôr do sol */}
         <path
           id="bg-beach-s"
           d="M0,836 Q200,820 400,832 Q600,844 800,826
              Q1000,810 1200,826 Q1340,836 1440,822 L1440,900 L0,900 Z"
-          fill="#a82c0a"
+          fill="#d07830"
           opacity="0"
         />
 
@@ -415,69 +421,54 @@ export default function SunsetLayer() {
           stroke="#90C8E0" strokeWidth="0.8" opacity="0.2" />
 
         {/* ════════════════════════════════════════
-            PALMEIRAS NA PRAIA
+            PALMEIRAS — tronco preenchido + frondes largas
+            Cada palmeira: [baseX, crownX, crownY]
         ════════════════════════════════════════ */}
-        <g fill="none" strokeLinecap="round">
-          {/* —— Palmeira 1 — esquerda, inclinada à direita —— */}
-          <path d="M148,900 Q152,868 158,840 Q163,812 170,790 Q175,768 178,750"
-            stroke="#1a1008" strokeWidth="9"/>
-          <path d="M178,750 Q198,730 226,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M178,750 Q160,728 140,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M178,750 Q188,728 200,712" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M178,750 Q168,727 156,714" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M178,750 Q202,738 220,732" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="180" cy="756" r="5" fill="#1a1008"/>
-
-          {/* —— Palmeira 2 — esquerda, inclinada à esquerda, mais baixa —— */}
-          <path d="M288,900 Q285,870 282,845 Q279,820 276,800 Q273,778 271,762"
-            stroke="#1a1008" strokeWidth="8"/>
-          <path d="M271,762 Q290,744 314,738" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M271,762 Q252,742 232,740" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M271,762 Q280,742 288,726" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M271,762 Q260,741 250,726" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M271,762 Q294,750 310,746" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="272" cy="768" r="5" fill="#1a1008"/>
-
-          {/* —— Palmeira 3 — centro-esquerda, reta —— */}
-          <path d="M492,900 Q490,872 490,845 Q489,818 490,793 Q490,768 491,748"
-            stroke="#1a1008" strokeWidth="9"/>
-          <path d="M491,748 Q514,728 542,722" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M491,748 Q470,727 448,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M491,748 Q502,726 514,710" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M491,748 Q478,726 466,712" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M491,748 Q516,736 534,730" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="492" cy="754" r="5" fill="#1a1008"/>
-
-          {/* —— Palmeira 4 — centro-direita, reta —— */}
-          <path d="M948,900 Q950,872 950,845 Q951,818 950,793 Q950,768 949,748"
-            stroke="#1a1008" strokeWidth="9"/>
-          <path d="M949,748 Q972,728 1000,722" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M949,748 Q928,727 906,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M949,748 Q960,726 972,710" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M949,748 Q936,726 924,712" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M949,748 Q974,736 992,730" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="950" cy="754" r="5" fill="#1a1008"/>
-
-          {/* —— Palmeira 5 — direita, inclinada à esquerda, menor —— */}
-          <path d="M1152,900 Q1149,872 1146,847 Q1143,822 1140,800 Q1138,778 1137,762"
-            stroke="#1a1008" strokeWidth="8"/>
-          <path d="M1137,762 Q1156,744 1180,738" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M1137,762 Q1118,742 1098,740" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M1137,762 Q1146,742 1154,726" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M1137,762 Q1126,741 1116,726" stroke="#1c3408" strokeWidth="4.5"/>
-          <path d="M1137,762 Q1160,750 1176,746" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="1138" cy="768" r="5" fill="#1a1008"/>
-
-          {/* —— Palmeira 6 — direita, inclinada à direita —— */}
-          <path d="M1290,900 Q1295,868 1300,840 Q1305,812 1310,790 Q1314,768 1316,750"
-            stroke="#1a1008" strokeWidth="9"/>
-          <path d="M1316,750 Q1336,730 1364,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M1316,750 Q1298,728 1278,724" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M1316,750 Q1326,728 1338,712" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M1316,750 Q1304,727 1292,714" stroke="#1c3408" strokeWidth="5"/>
-          <path d="M1316,750 Q1340,738 1358,732" stroke="#1c3408" strokeWidth="4"/>
-          <circle cx="1317" cy="756" r="5" fill="#1a1008"/>
-        </g>
+        {[
+          [175, 194, 738],   // esq — inclina direita
+          [315, 308, 752],   // esq — inclina esq, menor
+          [510, 514, 730],   // centro-esq — reta, mais alta
+          [930, 926, 732],   // centro-dir — reta, mais alta
+          [1125, 1130, 750], // dir — inclina dir, menor
+          [1295, 1310, 738], // dir — inclina direita
+        ].map(([bx, cx, cy], i) => {
+          const by = 900;
+          const mx = Math.round((bx + cx) / 2);
+          const my = Math.round((cy + by) / 2);
+          // tronco: path preenchido cônico, base ~14px, topo ~7px
+          const trunk = `M${bx-7},${by} Q${mx-4},${my} ${cx-3},${cy+6} L${cx+4},${cy+4} Q${mx+5},${my} ${bx+7},${by} Z`;
+          // frondes [controle dx, controle dy, ponta dx, ponta dy, espessura]
+          const fronds = [
+            [-26,-28,-56,-46, 13], // cima-esq
+            [  2,-30,  2,-52, 14], // cima centro
+            [ 28,-28, 58,-46, 13], // cima-dir
+            [ 48, -8, 88,  6, 12], // dir horizontal
+            [ 50, 10, 88, 26, 11], // dir para baixo
+            [-48, -8,-88,  6, 12], // esq horizontal
+            [-50, 10,-88, 26, 11], // esq para baixo
+          ];
+          return (
+            <g key={i}>
+              {/* Tronco preenchido */}
+              <path d={trunk} fill="#1e1008" />
+              {/* Frondes grossas com ponta redonda */}
+              {fronds.map(([qx, qy, tx, ty, sw], fi) => (
+                <path key={fi}
+                  d={`M${cx},${cy} Q${cx+qx},${cy+qy} ${cx+tx},${cy+ty}`}
+                  stroke="#1a3d08" strokeWidth={sw}
+                  strokeLinecap="round" fill="none"
+                />
+              ))}
+              {/* Fronde de baixo — cai atrás do tronco */}
+              <path d={`M${cx},${cy} Q${cx+4},${cy+20} ${cx+2},${cy+44}`}
+                stroke="#162e06" strokeWidth="10" strokeLinecap="round" fill="none"/>
+              {/* Nó do tronco (cocos) */}
+              <ellipse cx={cx} cy={cy+2} rx="7" ry="5" fill="#141008"/>
+              <circle cx={cx-3} cy={cy+5} r="3.5" fill="#0e0c06"/>
+              <circle cx={cx+4} cy={cy+6} r="3" fill="#0e0c06"/>
+            </g>
+          );
+        })}
       </svg>
     </div>
   );
