@@ -83,7 +83,7 @@ export default function HeroSection() {
               {t('hero_eyebrow')}
             </p>
 
-            <h1 className="font-display text-creme font-light leading-[1.05] tracking-tight mb-7"
+            <h1 className="font-display text-creme font-bold leading-[1.05] tracking-tight mb-7"
                 style={{ fontSize: 'clamp(44px,6vw,80px)' }}>
               <span className="h1-line block overflow-hidden">
                 <span>{t('hero_title_1')}</span>
@@ -144,7 +144,7 @@ export default function HeroSection() {
               <div className="hero-badge hidden sm:block absolute bottom-8 left-[-28px] bg-ink-2 border border-gold/30 rounded-2xl px-5 py-4 text-center backdrop-blur-md">
                 <div className="animate-badge-ring absolute inset-[-4px] border border-gold/15 rounded-[18px]" />
                 <span
-                  className="hero-badge-num block font-display text-[36px] font-light text-gold leading-none stat-num"
+                  className="hero-badge-num block font-display text-[36px] font-semibold text-gold leading-none stat-num"
                   data-count="12"
                 >
                   0
@@ -158,7 +158,7 @@ export default function HeroSection() {
                   <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
                 <div>
-                  <span className="block font-display text-[22px] font-light text-creme leading-none">R$ 150M+</span>
+                  <span className="block font-display text-[22px] font-semibold text-creme leading-none">R$ 150M+</span>
                   <span className="block text-[10px] text-creme/50 mt-0.5 tracking-wide">{t('float_label')}</span>
                 </div>
               </div>

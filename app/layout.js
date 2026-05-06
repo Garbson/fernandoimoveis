@@ -1,15 +1,14 @@
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google';
+import { Syne, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 
-const cormorant = Cormorant_Garamond({
-  weight: ['300', '400', '600'],
-  style: ['normal', 'italic'],
+const syne = Syne({
+  weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
 });
 
-const dmSans = DM_Sans({
+const jakarta = Plus_Jakarta_Sans({
   weight: ['300', '400', '500', '600'],
   subsets: ['latin'],
   variable: '--font-body',
@@ -34,7 +33,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${dmSans.variable}`}>
+    <html lang="pt-BR" className={`${syne.variable} ${jakarta.variable}`}>
       <body className="font-body bg-creme-3 text-text overflow-x-hidden">
         {children}
       </body>

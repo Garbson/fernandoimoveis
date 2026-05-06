@@ -33,7 +33,7 @@ export default function CtaBand() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/85" />
       </div>
       <div className="cta-inner relative z-10 max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)] text-center">
-        <h2 className="font-display font-light text-creme leading-[1.15] tracking-tight max-w-[700px] mx-auto mb-9"
+        <h2 className="font-display font-semibold text-creme leading-[1.15] tracking-tight max-w-[700px] mx-auto mb-9"
             style={{ fontSize: 'clamp(28px,4vw,52px)' }}>
           {t('cta_title')}
         </h2>

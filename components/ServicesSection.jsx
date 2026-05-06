@@ -126,7 +126,7 @@ export default function ServicesSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-gold mb-5">
             {t('services_tag')}
           </p>
-          <h2 className="font-display font-light leading-[1.12] tracking-tight text-creme"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-creme"
               style={{ fontSize: 'clamp(32px,4.5vw,52px)' }}>
             {t('services_title')}
           </h2>

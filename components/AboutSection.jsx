@@ -61,7 +61,7 @@ export default function AboutSection() {
             <p className="section-tag flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
               {t('about_tag')}
             </p>
-            <h2 className="font-display font-light leading-[1.12] tracking-tight text-ink mb-7"
+            <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-7"
                 style={{ fontSize: 'clamp(32px,4.5vw,52px)' }}>
               {t('about_title')}
             </h2>

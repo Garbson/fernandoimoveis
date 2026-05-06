@@ -106,7 +106,7 @@ export default function PortoBeloSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
             {t('porto_tag')}
           </p>
-          <h2 className="font-display font-light leading-[1.12] tracking-tight text-ink mb-4"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-4"
               style={{ fontSize: 'clamp(32px,4.4vw,52px)' }}>
             {t('porto_title')}
           </h2>

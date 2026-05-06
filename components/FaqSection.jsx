@@ -42,7 +42,7 @@ export default function FaqSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-gold mb-5">
             {t('faq_tag')}
           </p>
-          <h2 className="font-display font-light leading-[1.12] tracking-tight text-creme mb-4"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-creme mb-4"
             style={{ fontSize: 'clamp(30px,4.2vw,50px)' }}>
             {t('faq_title')}
           </h2>

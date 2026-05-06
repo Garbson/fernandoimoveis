@@ -184,7 +184,7 @@ export default function PropertiesSection() {
           <p className="section-tag inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-verde-mid mb-5">
             {t('prop_tag')}
           </p>
-          <h2 className="font-display font-light leading-[1.12] tracking-tight text-ink mb-4"
+          <h2 className="font-display font-semibold leading-[1.12] tracking-tight text-ink mb-4"
               style={{ fontSize: 'clamp(32px,4.5vw,52px)' }}>
             {t('prop_title')}
           </h2>
