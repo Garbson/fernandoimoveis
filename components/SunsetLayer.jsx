@@ -12,45 +12,45 @@ export default function SunsetLayer() {
         trigger: document.documentElement,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 2.5,
+        scrub: 2,
       };
 
-      // Sol desce do topo até além do horizonte
+      /* Sol e halos descem até o horizonte */
       gsap.to(['#bg-sun', '#bg-sun-s', '#bg-glow-day', '#bg-glow-set'], {
-        attr: { cy: 650 },
+        attr: { cy: 648 },
         scrollTrigger: st,
       });
 
-      // Céu do pôr do sol aparece
-      gsap.to('#bg-sky-s', { opacity: 0.96, scrollTrigger: st });
+      /* Céu do pôr do sol aparece */
+      gsap.to('#bg-sky-s', { opacity: 1, scrollTrigger: st });
 
-      // Sol vira laranja/vermelho
+      /* Sol vira vermelho */
       gsap.to('#bg-sun-s', { opacity: 1, scrollTrigger: st });
 
-      // Halo do pôr do sol aparece
-      gsap.to('#bg-glow-set', { opacity: 0.92, scrollTrigger: st });
+      /* Halo vermelho aparece */
+      gsap.to('#bg-glow-set', { opacity: 1, scrollTrigger: st });
 
-      // Brilho no horizonte
+      /* Brilho no horizonte */
       gsap.to('#bg-horiz', { opacity: 1, scrollTrigger: st });
 
-      // Serras/morros ficam avermelhados
-      gsap.to('#bg-hills-s', { opacity: 0.7, scrollTrigger: st });
+      /* Serras ficam avermelhadas */
+      gsap.to('#bg-hills-s', { opacity: 0.8, scrollTrigger: st });
 
-      // Mar vira espelho do pôr do sol
-      gsap.to('#bg-sea-s', { opacity: 0.78, scrollTrigger: st });
+      /* Mar vira espelho */
+      gsap.to('#bg-sea-s', { opacity: 0.9, scrollTrigger: st });
 
-      // Reflexo do sol cresce no mar
+      /* Reflexo cresce */
       gsap.to('#bg-refl', {
-        attr: { ry: 160, rx: 30, cy: 618 },
-        opacity: 0.68,
+        attr: { ry: 170, rx: 34, cy: 615 },
+        opacity: 0.75,
         scrollTrigger: st,
       });
 
-      // Praia fica avermelhada
-      gsap.to('#bg-beach-s', { opacity: 0.55, scrollTrigger: st });
+      /* Praia avermelhada */
+      gsap.to('#bg-beach-s', { opacity: 0.65, scrollTrigger: st });
 
-      // Escurecimento final (noite chegando)
-      gsap.to('#bg-dusk', { opacity: 0.55, scrollTrigger: st });
+      /* Escurecimento noturno */
+      gsap.to('#bg-dusk', { opacity: 0.5, scrollTrigger: st });
     };
 
     run();
@@ -69,173 +69,168 @@ export default function SunsetLayer() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Céu base — verde escuro da marca */}
+          {/* Céu base — verde médio (mais visível que preto) */}
           <linearGradient id="bg-sky-base" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#060c06" />
-            <stop offset="50%"  stopColor="#0e1b0e" />
-            <stop offset="100%" stopColor="#132613" />
+            <stop offset="0%"   stopColor="#0d1f10" />
+            <stop offset="45%"  stopColor="#173520" />
+            <stop offset="100%" stopColor="#1e4828" />
           </linearGradient>
 
-          {/* Céu pôr do sol — laranja/vermelho profundo */}
+          {/* Céu pôr do sol — bem saturado */}
           <linearGradient id="bg-sky-sunset" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#0b0302" />
-            <stop offset="28%"  stopColor="#3e0f06" />
-            <stop offset="65%"  stopColor="#9a2510" />
-            <stop offset="100%" stopColor="#cc3c10" />
+            <stop offset="0%"   stopColor="#180806" />
+            <stop offset="22%"  stopColor="#6b1a08" />
+            <stop offset="58%"  stopColor="#c43010" />
+            <stop offset="100%" stopColor="#f04820" />
           </linearGradient>
 
-          {/* Mar base */}
+          {/* Mar base — teal visível */}
           <linearGradient id="bg-sea-base" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#0c1d1d" />
-            <stop offset="100%" stopColor="#060e0e" />
+            <stop offset="0%"   stopColor="#0e2a2a" />
+            <stop offset="100%" stopColor="#071414" />
           </linearGradient>
 
-          {/* Mar espelho do pôr do sol */}
+          {/* Mar espelho pôr do sol — laranja intenso */}
           <linearGradient id="bg-sea-sunset" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#b02e0e" stopOpacity="0.65" />
-            <stop offset="45%"  stopColor="#581508" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#0c0804" stopOpacity="0" />
+            <stop offset="0%"   stopColor="#e03810" stopOpacity="0.75" />
+            <stop offset="40%"  stopColor="#801808" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#180804" stopOpacity="0" />
           </linearGradient>
 
-          {/* Halo do sol (dia) */}
+          {/* Halo do sol dia */}
           <radialGradient id="bg-glow-day-g" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#C4975A" stopOpacity="0.52" />
-            <stop offset="48%"  stopColor="#C4975A" stopOpacity="0.16" />
+            <stop offset="0%"   stopColor="#E8B870" stopOpacity="0.7" />
+            <stop offset="40%"  stopColor="#C4975A" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#C4975A" stopOpacity="0" />
           </radialGradient>
 
-          {/* Halo do sol (pôr do sol) */}
+          {/* Halo pôr do sol */}
           <radialGradient id="bg-glow-set-g" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#e02c0a" stopOpacity="0.68" />
-            <stop offset="48%"  stopColor="#e02c0a" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#e02c0a" stopOpacity="0" />
+            <stop offset="0%"   stopColor="#ff4010" stopOpacity="0.85" />
+            <stop offset="40%"  stopColor="#e02808" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#e02808" stopOpacity="0" />
           </radialGradient>
 
           {/* Reflexo do sol no mar */}
           <linearGradient id="bg-refl-g" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stopColor="#C4975A" stopOpacity="0.62" />
+            <stop offset="0%"   stopColor="#F0B060" stopOpacity="0.8" />
+            <stop offset="60%"  stopColor="#C4975A" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#C4975A" stopOpacity="0" />
           </linearGradient>
 
           {/* Brilho horizonte */}
-          <radialGradient id="bg-horiz-g" cx="50%" cy="100%" r="58%">
-            <stop offset="0%"   stopColor="#d83c0e" stopOpacity="0.72" />
-            <stop offset="100%" stopColor="#d83c0e" stopOpacity="0" />
+          <radialGradient id="bg-horiz-g" cx="50%" cy="100%" r="60%">
+            <stop offset="0%"   stopColor="#f04010" stopOpacity="0.85" />
+            <stop offset="50%"  stopColor="#c03010" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#c03010" stopOpacity="0" />
           </radialGradient>
 
-          {/* Vinheta de borda */}
-          <radialGradient id="bg-vignette" cx="50%" cy="44%" r="70%">
-            <stop offset="22%"  stopColor="transparent" />
-            <stop offset="100%" stopColor="#030603" stopOpacity="0.82" />
+          {/* Vinheta suave (reduzida para não esconder SVG) */}
+          <radialGradient id="bg-vignette" cx="50%" cy="44%" r="72%">
+            <stop offset="30%"  stopColor="transparent" />
+            <stop offset="100%" stopColor="#030803" stopOpacity="0.55" />
           </radialGradient>
 
-          {/* Filtros de blur para halos */}
-          <filter id="bg-blur28" x="-70%" y="-70%" width="240%" height="240%">
-            <feGaussianBlur stdDeviation="28" />
-          </filter>
-          <filter id="bg-blur14" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="14" />
+          {/* Blur para halos */}
+          <filter id="bg-blur32" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="32" />
           </filter>
         </defs>
 
-        {/* ── Céu base ── */}
+        {/* ── Céu base (verde médio, sempre visível) ── */}
         <rect width="1440" height="900" fill="url(#bg-sky-base)" />
 
-        {/* ── Overlay pôr do sol (opacity 0 → 0.96 no scroll) ── */}
+        {/* ── Pôr do sol (opacity 0 → 1) ── */}
         <rect id="bg-sky-s" width="1440" height="900" fill="url(#bg-sky-sunset)" opacity="0" />
 
-        {/* ── Halo do sol dia (blur grande) ── */}
-        <circle id="bg-glow-day" cx="720" cy="108" r="210"
-          fill="url(#bg-glow-day-g)" filter="url(#bg-blur28)" />
+        {/* ── Halo dia (grande, dourado) ── */}
+        <circle id="bg-glow-day" cx="720" cy="108" r="240"
+          fill="url(#bg-glow-day-g)" filter="url(#bg-blur32)" />
 
-        {/* ── Halo do sol pôr (opacity 0 → 0.92) ── */}
-        <circle id="bg-glow-set" cx="720" cy="108" r="190"
-          fill="url(#bg-glow-set-g)" filter="url(#bg-blur28)" opacity="0" />
+        {/* ── Halo pôr (vermelho, opacity 0 → 1) ── */}
+        <circle id="bg-glow-set" cx="720" cy="108" r="220"
+          fill="url(#bg-glow-set-g)" filter="url(#bg-blur32)" opacity="0" />
 
-        {/* ── Corpo do sol (dourado) ── */}
-        <circle id="bg-sun" cx="720" cy="108" r="54" fill="#C4975A" />
+        {/* ── Sol dourado ── */}
+        <circle id="bg-sun" cx="720" cy="108" r="58" fill="#E8B060" />
 
-        {/* ── Sol pôr do sol (vermelho, opacity 0 → 1) ── */}
-        <circle id="bg-sun-s" cx="720" cy="108" r="54" fill="#d0340c" opacity="0" />
+        {/* ── Sol vermelho (aparece no scroll) ── */}
+        <circle id="bg-sun-s" cx="720" cy="108" r="58" fill="#e83810" opacity="0" />
 
-        {/* Brilho interno do sol */}
-        <circle cx="704" cy="94" r="14" fill="#F0C87A" opacity="0.30" />
+        {/* Brilho interno */}
+        <ellipse cx="705" cy="92" rx="18" ry="12" fill="#FDE08A" opacity="0.45" />
 
-        {/* ── Brilho no horizonte (opacity 0 → 1) ── */}
-        <ellipse id="bg-horiz" cx="720" cy="592" rx="600" ry="98"
+        {/* ── Brilho horizonte (opacity 0 → 1) ── */}
+        <ellipse id="bg-horiz" cx="720" cy="592" rx="640" ry="110"
           fill="url(#bg-horiz-g)" opacity="0" />
 
-        {/* ── Serras silhueta base ── */}
+        {/* ── Serras base ── */}
         <path
-          d="M0,548 Q85,510 208,535 Q305,505 445,530
-             Q535,510 648,527 Q720,514 842,530
-             Q952,510 1075,534 Q1198,510 1323,532
-             Q1396,518 1440,534
-             L1440,596 L0,596 Z"
-          fill="#090e09"
-          opacity="0.94"
+          d="M0,548 Q90,505 215,532 Q310,500 450,528
+             Q540,506 650,525 Q720,512 845,528
+             Q956,506 1078,532 Q1200,506 1325,530
+             Q1398,516 1440,532 L1440,596 L0,596 Z"
+          fill="#0a1510"
+          opacity="0.96"
         />
 
-        {/* Serras pôr do sol (opacity 0 → 0.7) */}
+        {/* Serras avermelhadas no pôr (opacity 0 → 0.8) */}
         <path
           id="bg-hills-s"
-          d="M0,548 Q85,510 208,535 Q305,505 445,530
-             Q535,510 648,527 Q720,514 842,530
-             Q952,510 1075,534 Q1198,510 1323,532
-             Q1396,518 1440,534
-             L1440,596 L0,596 Z"
-          fill="#7a1e0a"
+          d="M0,548 Q90,505 215,532 Q310,500 450,528
+             Q540,506 650,525 Q720,512 845,528
+             Q956,506 1078,532 Q1200,506 1325,530
+             Q1398,516 1440,532 L1440,596 L0,596 Z"
+          fill="#c02808"
           opacity="0"
         />
 
-        {/* ── Linha do horizonte ── */}
+        {/* ── Linha horizonte ── */}
         <line x1="0" y1="592" x2="1440" y2="592"
-          stroke="#C4975A" strokeWidth="0.7" opacity="0.14" />
+          stroke="#E8B060" strokeWidth="1" opacity="0.2" />
 
-        {/* ── Mar base ── */}
+        {/* ── Mar base (teal) ── */}
         <rect x="0" y="592" width="1440" height="308" fill="url(#bg-sea-base)" />
 
-        {/* ── Espelho do pôr do sol no mar (opacity 0 → 0.78) ── */}
+        {/* ── Espelho laranja (opacity 0 → 0.9) ── */}
         <rect id="bg-sea-s" x="0" y="592" width="1440" height="308"
           fill="url(#bg-sea-sunset)" opacity="0" />
 
-        {/* ── Reflexo do sol (cresce no scroll) ── */}
-        <ellipse id="bg-refl" cx="720" cy="658" rx="16" ry="72"
-          fill="url(#bg-refl-g)" opacity="0.14" />
+        {/* ── Reflexo do sol ── */}
+        <ellipse id="bg-refl" cx="720" cy="660" rx="16" ry="68"
+          fill="url(#bg-refl-g)" opacity="0.12" />
 
         {/* ── Ondas ── */}
-        <g id="bg-waves" stroke="#1a3d3d" strokeWidth="0.7" fill="none" opacity="0.22">
-          <path d="M0,624 Q240,617 480,624 Q720,631 960,624 Q1200,617 1440,624" />
-          <path d="M0,648 Q240,641 480,648 Q720,655 960,648 Q1200,641 1440,648" />
-          <path d="M0,672 Q240,665 480,672 Q720,679 960,672 Q1200,665 1440,672" />
-          <path d="M0,696 Q240,689 480,696 Q720,703 960,696 Q1200,689 1440,696" />
-          <path d="M0,720 Q240,713 480,720 Q720,727 960,720 Q1200,713 1440,720" />
-          <path d="M0,744 Q240,737 480,744 Q720,751 960,744 Q1200,737 1440,744" />
+        <g stroke="#2a5a50" strokeWidth="0.8" fill="none" opacity="0.3">
+          <path d="M0,622 Q240,615 480,622 Q720,629 960,622 Q1200,615 1440,622" />
+          <path d="M0,646 Q240,639 480,646 Q720,653 960,646 Q1200,639 1440,646" />
+          <path d="M0,670 Q240,663 480,670 Q720,677 960,670 Q1200,663 1440,670" />
+          <path d="M0,694 Q240,687 480,694 Q720,701 960,694 Q1200,687 1440,694" />
+          <path d="M0,718 Q240,711 480,718 Q720,725 960,718 Q1200,711 1440,718" />
+          <path d="M0,742 Q240,735 480,742 Q720,749 960,742 Q1200,735 1440,742" />
         </g>
 
         {/* ── Praia base ── */}
         <path
-          d="M0,834 Q200,818 400,830 Q600,840 800,824
-             Q1000,808 1200,824 Q1340,834 1440,820
-             L1440,900 L0,900 Z"
-          fill="#18120a"
-          opacity="0.72"
+          d="M0,832 Q200,816 400,828 Q600,840 800,822
+             Q1000,806 1200,822 Q1340,832 1440,818 L1440,900 L0,900 Z"
+          fill="#22180c"
+          opacity="0.78"
         />
 
-        {/* Praia pôr do sol (opacity 0 → 0.55) */}
+        {/* Praia avermelhada (opacity 0 → 0.65) */}
         <path
           id="bg-beach-s"
-          d="M0,834 Q200,818 400,830 Q600,840 800,824
-             Q1000,808 1200,824 Q1340,834 1440,820
-             L1440,900 L0,900 Z"
-          fill="#882610"
+          d="M0,832 Q200,816 400,828 Q600,840 800,822
+             Q1000,806 1200,822 Q1340,832 1440,818 L1440,900 L0,900 Z"
+          fill="#a82c0a"
           opacity="0"
         />
 
-        {/* ── Escurecimento de noite (opacity 0 → 0.55) ── */}
-        <rect id="bg-dusk" width="1440" height="900" fill="#020402" opacity="0" />
+        {/* ── Noite chegando (opacity 0 → 0.5) ── */}
+        <rect id="bg-dusk" width="1440" height="900" fill="#020504" opacity="0" />
 
-        {/* ── Vinheta de borda ── */}
+        {/* ── Vinheta suave ── */}
         <rect width="1440" height="900" fill="url(#bg-vignette)" />
       </svg>
     </div>

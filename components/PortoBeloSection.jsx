@@ -98,7 +98,7 @@ export default function PortoBeloSection() {
   };
 
   return (
-    <section id="porto-belo" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/85 overflow-x-hidden">
+    <section id="porto-belo" ref={sectionRef} className="py-[clamp(80px,10vw,140px)] bg-creme-3/55 overflow-x-hidden">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
 
         {/* Header */}

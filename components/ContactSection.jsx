@@ -33,7 +33,7 @@ export default function ContactSection() {
     <section
       id="contato"
       ref={sectionRef}
-      className="py-[clamp(80px,10vw,140px)] bg-creme-3/85"
+      className="py-[clamp(80px,10vw,140px)] bg-creme-3/55"
     >
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="max-w-[600px] mx-auto">
