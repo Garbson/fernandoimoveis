@@ -1,4 +1,4 @@
-import { Syne, Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Syne } from 'next/font/google';
 import './globals.css';
 
 const syne = Syne({
@@ -20,9 +20,9 @@ export const metadata = {
   description: 'Especialista em investimentos imobiliários no litoral de Santa Catarina. Lançamentos exclusivos em Itapema e Porto Belo.',
   keywords: 'corretor imóveis Itapema, Porto Belo, Santa Catarina, lançamentos, investimento imobiliário',
   icons: {
-    icon: '/images/logo-creme.svg',
-    shortcut: '/images/logo-creme.svg',
-    apple: '/images/logo-creme.svg',
+    icon: '/images/logoBranca.PNG',
+    shortcut: '/images/logoBranca.PNG',
+    apple: '/images/logoBranca.PNG',
   },
   openGraph: {
     title: 'Fernando Pegoraro | Investimentos Imobiliários',
@@ -34,7 +34,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={`${syne.variable} ${jakarta.variable}`}>
-      <body className="font-body bg-creme-3 text-text overflow-x-hidden">
+      <body className="font-body bg-surface text-text overflow-x-hidden">
         {children}
       </body>
     </html>
