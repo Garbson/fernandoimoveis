@@ -126,6 +126,32 @@ export default function HeroSection() {
             delay: 1.2,
           },
         );
+
+        // Parallax Effect
+        gsap.to(".hero-bg", {
+          yPercent: 30,
+          scale: 1.05,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        gsap.to(".hero-content", {
+          yPercent: 40,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
       }, sectionRef);
     };
 
@@ -143,10 +169,14 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="bg-[url(/images/portoBelloMobile.jpg)] sm:bg-[url(/images/porto-belo-baixio.webp)] bg-cover bg-center relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-[120px] pb-24 text-center"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-[120px] pb-24 text-center"
     >
-      <div className="absolute inset-0 bg-black/15 backdrop-blur-[2px]" />
-      <div className="max-w-[860px] mx-auto px-[clamp(20px,5vw,60px)] relative z-10 w-full">
+      <div className="hero-bg absolute inset-[-10%] z-0">
+        <div className="absolute inset-0 bg-[url(/images/portoBelloMobile.jpg)] sm:bg-[url(/images/porto-belo-baixio.webp)] bg-cover bg-center" />
+      </div>
+      <div className="absolute inset-0 bg-black/15 backdrop-blur-[2px] z-0" />
+      
+      <div className="hero-content max-w-[860px] mx-auto px-[clamp(20px,5vw,60px)] relative z-10 w-full">
         <p className="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.28em] uppercase text-white mb-7">
           <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 animate-pulse-dot" />
           {t("hero_eyebrow")}

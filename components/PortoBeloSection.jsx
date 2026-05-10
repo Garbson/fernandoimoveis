@@ -170,11 +170,9 @@ export default function PortoBeloSection() {
             const distance = Math.abs(offset);
 
             return (
-              <button
+              <div
                 key={src}
-                type="button"
-                onClick={() => goTo(i)}
-                className="absolute top-1/2 left-1/2 w-[88%] sm:w-[74%] md:w-[62%] h-[80%] rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="absolute top-1/2 left-1/2 w-[88%] sm:w-[74%] md:w-[62%] h-[80%] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   transform: isMobile
                     ? mobileDeckTransform(offset, distance)
@@ -188,21 +186,28 @@ export default function PortoBeloSection() {
                   zIndex: 20 - distance,
                   filter: `saturate(${1 - distance * 0.2}) brightness(${1 - distance * 0.1})`,
                 }}
-                aria-label={t(`porto_alt_${i + 1}`)}
               >
-                <Image
-                  src={src}
-                  alt={t(`porto_alt_${i + 1}`)}
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: pos }}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                <span className="absolute left-4 bottom-3 text-[11px] sm:text-xs tracking-[0.12em] uppercase text-white/85">
-                  {t(`porto_alt_${i + 1}`)}
-                </span>
-              </button>
+                <button
+                  type="button"
+                  onClick={() => goTo(i)}
+                  className="w-full h-full relative rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] animate-float-slow"
+                  style={{ animationDelay: `${i * 0.5}s` }}
+                  aria-label={t(`porto_alt_${i + 1}`)}
+                >
+                  <Image
+                    src={src}
+                    alt={t(`porto_alt_${i + 1}`)}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: pos }}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                  <span className="absolute left-4 bottom-3 text-[11px] sm:text-xs tracking-[0.12em] uppercase text-white/85">
+                    {t(`porto_alt_${i + 1}`)}
+                  </span>
+                </button>
+              </div>
             );
           })}
         </div>

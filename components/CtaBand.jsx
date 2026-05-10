@@ -20,6 +20,15 @@ export default function CtaBand() {
           y: 30, duration: 0.8, stagger: 0.12, ease: 'power3.out',
           scrollTrigger: { trigger: '#cta-band', start: 'top 75%', once: true },
         });
+        gsap.fromTo('.cta-bg-img',
+          { scale: 1.15, yPercent: -10 },
+          {
+            scale: 1,
+            yPercent: 10,
+            ease: 'none',
+            scrollTrigger: { trigger: '#cta-band', start: 'top bottom', end: 'bottom top', scrub: true },
+          }
+        );
       }, sectionRef);
     };
     run();
@@ -28,8 +37,10 @@ export default function CtaBand() {
 
   return (
     <section id="cta-band" ref={sectionRef} className="relative py-[clamp(80px,12vw,160px)] overflow-hidden">
-      <div className="absolute inset-0">
-        <Image src="/images/edificios/organica3.jpeg" alt="" fill className="object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-[-10%] cta-bg-img">
+          <Image src="/images/edificios/organica3.jpeg" alt="" fill className="object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/50 to-ink/65" />
       </div>
       <div className="cta-inner relative z-10 max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)] text-center">

@@ -121,28 +121,48 @@ export default function ServicesSection() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
-        gsap.from(".section-header-srv > *", {
-          y: 32,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: "#servicos",
-            start: "top 75%",
-            once: true,
+        gsap.fromTo(".section-header-srv > *", 
+          { y: 32, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: "#servicos",
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
+        gsap.fromTo(".svc-card", 
+          {
+            y: 60,
+            rotationX: -15,
+            rotationY: 10,
+            scale: 0.9,
+            opacity: 0,
+            transformPerspective: 1200,
+            transformOrigin: "bottom center",
           },
-        });
-        gsap.from(".svc-card", {
-          y: 48,
-          duration: 0.8,
-          stagger: 0.14,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".svc-grid",
-            start: "top 75%",
-            once: true,
-          },
-        });
+          {
+            y: 0,
+            rotationX: 0,
+            rotationY: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1.1,
+            stagger: 0.15,
+            ease: "back.out(1.4)",
+            clearProps: "transform",
+            scrollTrigger: {
+              trigger: ".svc-grid",
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
       }, sectionRef);
     };
     run();

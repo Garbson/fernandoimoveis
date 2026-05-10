@@ -45,6 +45,7 @@ module.exports = {
         floatSlow:   { '0%,100%':{ transform:'translateY(0) rotate(0deg)' }, '50%':{ transform:'translateY(-12px) rotate(1deg)' } },
         slideUp:     { from:{ transform:'translateY(20px)', opacity:'0' }, to:{ transform:'translateY(0)', opacity:'1' } },
         slideIn:     { from:{ transform:'translateX(-20px)', opacity:'0' }, to:{ transform:'translateX(0)', opacity:'1' } },
+        marquee:     { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } },
       },
       animation: {
         'orb-1':       'orbFloat 12s ease-in-out infinite alternate',
@@ -60,6 +61,7 @@ module.exports = {
         'float-slow':  'floatSlow 6s ease-in-out infinite',
         'slide-up':    'slideUp 0.6s ease-out forwards',
         'slide-in':    'slideIn 0.5s ease-out forwards',
+        'marquee':     'marquee 30s linear infinite',
       },
       transitionTimingFunction: {
         'expo-out': 'cubic-bezier(0.16, 1, 0.3, 1)',

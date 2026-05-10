@@ -14,6 +14,7 @@ import PortoBeloSection from "./PortoBeloSection";
 import PropertiesSection from "./PropertiesSection";
 import ServicesSection from "./ServicesSection";
 import StatsSection from "./StatsSection";
+import TickerBand from "./TickerBand";
 
 export default function ClientApp() {
 
@@ -57,6 +58,7 @@ export default function ClientApp() {
       <Header />
       <main className="relative" style={{ zIndex: 1 }}>
         <HeroSection />
+        <TickerBand />
         <StatsSection />
         <AboutSection />
         <ServicesSection />

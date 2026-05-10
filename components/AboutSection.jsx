@@ -17,19 +17,34 @@ export default function AboutSection() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
-        gsap.from(".about-photo", {
-          y: 70,
-          opacity: 0,
-          scale: 0.95,
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: "#sobre",
-            start: "top 75%",
-            once: true,
-            invalidateOnRefresh: true,
-          },
-        });
+        gsap.fromTo(
+          ".about-photo",
+          { clipPath: "inset(100% 0 0 0)" },
+          {
+            clipPath: "inset(0% 0 0 0)",
+            duration: 1.4,
+            ease: "power4.inOut",
+            scrollTrigger: {
+              trigger: "#sobre",
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
+        gsap.fromTo(
+          ".sobre-img",
+          { scale: 1.4 },
+          {
+            scale: 1,
+            duration: 1.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: "#sobre",
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
         gsap.from(".about-text > *", {
           y: 48,
           opacity: 0,
@@ -57,19 +72,21 @@ export default function AboutSection() {
     >
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(40px,7vw,100px)] items-center max-w-[580px] lg:max-w-none mx-auto">
-          <div className="about-photo relative order-2 lg:order-1">
+          <div className="relative order-2 lg:order-1">
             <div className="relative">
-              <Image
-                src="/images/fp-chair.jpg"
-                alt="Fernando Pegoraro"
-                width={560}
-                height={747}
-                className="sobre-img w-full aspect-[3/4] object-cover object-top rounded-2xl"
-                loading="lazy"
-              />
+              <div className="about-photo relative overflow-hidden rounded-2xl w-full aspect-[3/4]">
+                <Image
+                  src="/images/fp-chair.jpg"
+                  alt="Fernando Pegoraro"
+                  width={560}
+                  height={747}
+                  className="sobre-img w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
               <div className="hidden sm:block absolute top-5 left-[-20px] right-5 bottom-[-20px] border border-gold/15 rounded-2xl pointer-events-none -z-10" />
               <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 rounded-full bg-gold/10 blur-[40px] pointer-events-none" />
-              <div className="absolute bottom-[-20px] right-0 sm:right-[-10px] bg-ink text-white text-xs tracking-wide px-[18px] py-3 rounded-lg flex items-center gap-2 shadow-[0_8px_32px_rgba(15,25,35,.2)]">
+              <div className="absolute bottom-[-20px] right-0 sm:right-[-10px] bg-ink text-white text-xs tracking-wide px-[18px] py-3 rounded-lg flex items-center gap-2 shadow-[0_8px_32px_rgba(15,25,35,.2)] z-10">
                 <PinIcon size={14} />
                 {t("about_regions")}
               </div>

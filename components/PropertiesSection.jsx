@@ -261,7 +261,7 @@ export default function PropertiesSection() {
                 role="button"
                 tabIndex={0}
                 aria-label={album.title}
-                className="prop-card absolute top-1/2 left-1/2 w-[88%] sm:w-[74%] md:w-[60%] h-[84%] rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="prop-card-wrapper absolute top-1/2 left-1/2 w-[88%] sm:w-[74%] md:w-[60%] h-[84%] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   transform: isMobile
                     ? mobileTransform(queuePos)
@@ -272,9 +272,13 @@ export default function PropertiesSection() {
                 }}
               >
                 <div
-                  className="prop-visual relative h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${currentImg})` }}
+                  className="w-full h-full relative rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] cursor-pointer animate-float-slow"
+                  style={{ animationDelay: `${i * 0.4}s` }}
                 >
+                  <div
+                    className="prop-visual relative h-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${currentImg})` }}
+                  >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/45" />
                   <span className="absolute left-4 bottom-4 text-sm sm:text-base font-medium text-white/95 tracking-wide">
                     {album.title}
@@ -319,6 +323,7 @@ export default function PropertiesSection() {
                       </div>
                     </>
                   )}
+                </div>
                 </div>
               </div>
             );

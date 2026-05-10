@@ -42,39 +42,33 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-[800] transition-all duration-500 ${
-          scrolled
-            ? "py-3 glass shadow-[0_4px_24px_rgba(0,0,0,0.06)] backdrop-blur-[200px]"
-            : "py-[22px] bg-gradient-to-b from-black/40 to-transparent"
+          scrolled ? "pt-4 px-4 sm:px-6 pointer-events-none" : "pt-0 px-0 pointer-events-none bg-gradient-to-b from-black/70 via-black/20 to-transparent"
         }`}
       >
-        <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)] flex items-center gap-10">
+        <div 
+          className={`max-w-[1280px] mx-auto flex items-center gap-5 lg:gap-10 transition-all duration-500 pointer-events-auto ${
+            scrolled
+              ? "py-2 px-6 sm:px-8 bg-ink/95 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10"
+              : "py-4 px-[clamp(20px,5vw,80px)] bg-transparent border border-transparent drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
+          }`}
+        >
           <a href="#" className="flex items-center gap-3 flex-shrink-0 group">
-            <div className="relative w-[90px] h-[90px] flex-shrink-0 transition-transform group-hover:scale-105 group-hover:rotate-[-3deg]">
+            <div className={`relative flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:rotate-[-3deg] ${scrolled ? "w-[56px] h-[56px]" : "w-[68px] h-[68px]"}`}>
               <Image
-                src={
-                  scrolled && !menuOpen
-                    ? "/images/logoPretaSemFundo.PNG"
-                    : "/images/logoBranca.PNG"
-                }
+                src="/images/logoBranca.PNG"
                 alt="Fernando Pegoraro"
                 fill
                 className="object-contain"
               />
             </div>
             <div>
-              <span
-                className={`block text-sm font-medium leading-tight transition-colors ${scrolled && !menuOpen ? "text-ink" : "text-white"}`}
-              >
+              <span className="block text-sm font-medium leading-tight transition-colors text-white">
                 Fernando Pegoraro
               </span>
-              <span
-                className={`block text-[11px] tracking-wide transition-colors ${scrolled && !menuOpen ? "text-text-3" : "text-white/60"}`}
-              >
+              <span className="block text-[11px] tracking-wide transition-colors text-white/60">
                 {t("header_role")}
               </span>
-              <span
-                className={`block text-[9px] tracking-wide transition-colors ${scrolled && !menuOpen ? "text-text-3" : "text-white/50"}`}
-              >
+              <span className="block text-[9px] tracking-wide transition-colors text-white/50">
                 Creci/SC 39814F 39814F
               </span>
             </div>
@@ -86,7 +80,7 @@ export default function Header() {
                 key={key}
                 href={href}
                 onClick={(e) => scrollTo(e, href)}
-                className={`nav-link relative text-[13px] transition-colors tracking-wide ${scrolled ? "text-text-2 hover:text-ink" : "text-white/80 hover:text-white"}`}
+                className="nav-link relative text-[13px] transition-colors tracking-wide text-white/80 hover:text-white"
               >
                 {t(key)}
               </a>
@@ -94,7 +88,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-5 ml-6 flex-shrink-0">
-            <LangSwitcher lang={lang} setLang={setLang} scrolled={scrolled} />
+            <LangSwitcher lang={lang} setLang={setLang} dark={true} />
             <a
               href={WA}
               target="_blank"
@@ -112,13 +106,13 @@ export default function Header() {
             aria-label="Menu"
           >
             <span
-              className={`block h-[1.5px] ${scrolled && !menuOpen ? "bg-ink" : "bg-white"} rounded transition-all ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
+              className={`block h-[1.5px] bg-white rounded transition-all ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
             />
             <span
-              className={`block h-[1.5px] ${scrolled && !menuOpen ? "bg-ink" : "bg-white"} rounded transition-all ${menuOpen ? "opacity-0 scale-x-0" : ""}`}
+              className={`block h-[1.5px] bg-white rounded transition-all ${menuOpen ? "opacity-0 scale-x-0" : ""}`}
             />
             <span
-              className={`block h-[1.5px] ${scrolled && !menuOpen ? "bg-ink" : "bg-white"} rounded transition-all ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
+              className={`block h-[1.5px] bg-white rounded transition-all ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
             />
           </button>
         </div>
