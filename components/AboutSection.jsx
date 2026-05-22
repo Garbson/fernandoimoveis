@@ -1,7 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { getGsap } from "@/lib/gsap";
 import { PinIcon, WaIcon } from "./Icons";
 
 const WA = "https://wa.me/554797518960";
@@ -13,9 +12,7 @@ export default function AboutSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.fromTo(
           ".about-photo",
@@ -25,8 +22,8 @@ export default function AboutSection() {
             duration: 1.4,
             ease: "power4.inOut",
             scrollTrigger: {
-              trigger: "#sobre",
-              start: "top 75%",
+              trigger: sectionRef.current,
+              start: "top 60%",
               once: true,
             },
           }
@@ -39,25 +36,28 @@ export default function AboutSection() {
             duration: 1.6,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: "#sobre",
-              start: "top 75%",
+              trigger: sectionRef.current,
+              start: "top 60%",
               once: true,
             },
           }
         );
-        gsap.from(".about-text > *", {
-          y: 48,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.13,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: "#sobre",
-            start: "top 75%",
-            once: true,
-            invalidateOnRefresh: true,
-          },
-        });
+        gsap.fromTo(".about-text > *",
+          { y: 48, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.13,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 60%",
+              once: true,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
       }, sectionRef);
     };
     run();
@@ -75,11 +75,9 @@ export default function AboutSection() {
           <div className="relative order-2 lg:order-1">
             <div className="relative">
               <div className="about-photo relative overflow-hidden rounded-2xl w-full aspect-[3/4]">
-                <Image
+                <img
                   src="/images/fp-chair.jpg"
                   alt="Fernando Pegoraro"
-                  width={560}
-                  height={747}
                   className="sobre-img w-full h-full object-cover object-top"
                   loading="lazy"
                 />

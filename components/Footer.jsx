@@ -1,6 +1,4 @@
-"use client";
 import { useLang } from "@/context/LangContext";
-import Image from "next/image";
 import { IgIcon, WaIcon } from "./Icons";
 
 export default function Footer() {
@@ -12,11 +10,10 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,5vw,80px)] pb-12 border-b border-white/[0.06] flex flex-wrap gap-10 justify-between items-start">
         <div className="flex items-center gap-3 max-w-sm">
           <div className="relative w-12 h-12 bg-white/10 rounded-lg p-2 flex items-center justify-center flex-shrink-0">
-            <Image
+            <img
               src="/images/logoBranca.PNG"
               alt="Fernando Pegoraro"
-              fill
-              className="object-contain p-2"
+              className="absolute inset-0 w-full h-full object-contain p-2"
             />
           </div>
           <div>
@@ -30,17 +27,25 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-col gap-3">
-          {["nav_about", "nav_services", "nav_properties", "nav_contact"].map(
-            (k) => (
-              <a
-                key={k}
-                href={`#${k.replace("nav_", "")}`}
-                className="text-white/50 hover:text-white text-xs transition-colors"
-              >
-                {t(k)}
-              </a>
-            ),
-          )}
+          {[
+            { key: "nav_about", href: "#sobre" },
+            { key: "nav_services", href: "#servicos" },
+            { key: "nav_properties", href: "#empreendimentos" },
+            { key: "nav_contact", href: "#contato" },
+          ].map(({ key, href }) => (
+            <a
+              key={key}
+              href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.querySelector(href);
+                if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+              }}
+              className="text-white/50 hover:text-white text-xs transition-colors"
+            >
+              {t(key)}
+            </a>
+          ))}
         </nav>
 
         <div className="flex gap-3 items-center">

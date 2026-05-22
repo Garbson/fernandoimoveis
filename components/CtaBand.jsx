@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { useLang } from '@/context/LangContext';
+import { getGsap } from '@/lib/gsap';
 
 const WA = 'https://wa.me/554797518960';
 
@@ -12,13 +12,11 @@ export default function CtaBand() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.from('.cta-inner > *', {
           y: 30, duration: 0.8, stagger: 0.12, ease: 'power3.out',
-          scrollTrigger: { trigger: '#cta-band', start: 'top 75%', once: true },
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', once: true },
         });
         gsap.fromTo('.cta-bg-img',
           { scale: 1.15, yPercent: -10 },
@@ -26,7 +24,7 @@ export default function CtaBand() {
             scale: 1,
             yPercent: 10,
             ease: 'none',
-            scrollTrigger: { trigger: '#cta-band', start: 'top bottom', end: 'bottom top', scrub: true },
+            scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', end: 'bottom top', scrub: true },
           }
         );
       }, sectionRef);
@@ -39,7 +37,7 @@ export default function CtaBand() {
     <section id="cta-band" ref={sectionRef} className="relative py-[clamp(80px,12vw,160px)] overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-[-10%] cta-bg-img">
-          <Image src="/images/edificios/organica3.jpeg" alt="" fill className="object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
+          <img src="/images/edificios/organica3.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/50 to-ink/65" />
       </div>

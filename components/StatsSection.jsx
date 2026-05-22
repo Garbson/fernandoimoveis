@@ -1,6 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
 import { Fragment, useEffect, useRef } from "react";
+import { getGsap } from "@/lib/gsap";
 
 const STATS = [
   { prefix: "R$", count: 1.4, suffix: "B+", labelKey: "stat1_label" },
@@ -15,9 +15,7 @@ export default function StatsSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
 
       ctx = gsap.context(() => {
         gsap.utils.toArray(".stat-item").forEach((item, i) => {
@@ -34,7 +32,7 @@ export default function StatsSection() {
               duration: 0.9,
               ease: "power4.out",
               delay: i * 0.12,
-              scrollTrigger: { trigger: item, start: "top 75%", once: true },
+              scrollTrigger: { trigger: item, start: "top 60%", once: true },
             },
           );
 
@@ -45,7 +43,7 @@ export default function StatsSection() {
               val: target,
               duration: 1.8,
               ease: "power2.out",
-              scrollTrigger: { trigger: item, start: "top 75%", once: true },
+              scrollTrigger: { trigger: item, start: "top 60%", once: true },
               onUpdate: () => {
                 numEl.textContent = isDecimal
                   ? obj.val.toFixed(1)

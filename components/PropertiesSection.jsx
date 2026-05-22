@@ -1,6 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
 import { useEffect, useRef, useState } from "react";
+import { getGsap } from "@/lib/gsap";
 import { PinIcon } from "./Icons";
 
 const WA = "https://wa.me/554797518960";
@@ -96,9 +96,7 @@ export default function PropertiesSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.from(".section-header-prop > *", {
           y: 30,
@@ -106,8 +104,8 @@ export default function PropertiesSection() {
           stagger: 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: "#empreendimentos",
-            start: "top 75%",
+            trigger: sectionRef.current,
+            start: "top 60%",
             once: true,
           },
         });
@@ -117,7 +115,7 @@ export default function PropertiesSection() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ".props-stage",
-            start: "top 75%",
+            start: "top 60%",
             once: true,
           },
         });
@@ -127,7 +125,7 @@ export default function PropertiesSection() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ".prop-detail-card",
-            start: "top 75%",
+            start: "top 60%",
             once: true,
           },
         });

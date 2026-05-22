@@ -1,4 +1,3 @@
-"use client";
 import { LangProvider } from "@/context/LangContext";
 import { useEffect } from "react";
 import AboutSection from "./AboutSection";

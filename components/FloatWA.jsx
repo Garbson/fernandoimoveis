@@ -1,4 +1,3 @@
-"use client";
 const WA_NUM = "554797518960";
 
 export default function FloatWA() {

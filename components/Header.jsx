@@ -1,6 +1,4 @@
-"use client";
 import { useLang } from "@/context/LangContext";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { WaIcon } from "./Icons";
 
@@ -54,11 +52,10 @@ export default function Header() {
         >
           <a href="#" className="flex items-center gap-3 flex-shrink-0 group">
             <div className={`relative flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:rotate-[-3deg] ${scrolled ? "w-[56px] h-[56px]" : "w-[68px] h-[68px]"}`}>
-              <Image
+              <img
                 src="/images/logoBranca.PNG"
                 alt="Fernando Pegoraro"
-                fill
-                className="object-contain"
+                className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
             <div>
@@ -69,7 +66,7 @@ export default function Header() {
                 {t("header_role")}
               </span>
               <span className="block text-[9px] tracking-wide transition-colors text-white/50">
-                Creci/SC 39814F 39814F
+                Creci/SC 39814F
               </span>
             </div>
           </a>

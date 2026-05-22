@@ -1,7 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { getGsap } from "@/lib/gsap";
 
 const PHOTOS = [
   { src: "/images/porto-belo-praia.webp", pos: "center 48%" },
@@ -36,9 +35,7 @@ export default function PortoBeloSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.from(".porto-head > *", {
           y: 26,
@@ -46,8 +43,8 @@ export default function PortoBeloSection() {
           stagger: 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: "#porto-belo",
-            start: "top 75%",
+            trigger: sectionRef.current,
+            start: "top 60%",
             once: true,
             invalidateOnRefresh: true,
           },
@@ -58,7 +55,7 @@ export default function PortoBeloSection() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ".porto-stage",
-            start: "top 75%",
+            start: "top 60%",
             once: true,
             invalidateOnRefresh: true,
           },
@@ -70,7 +67,7 @@ export default function PortoBeloSection() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ".porto-invest",
-            start: "top 75%",
+            start: "top 60%",
             once: true,
           },
         });
@@ -194,11 +191,10 @@ export default function PortoBeloSection() {
                   style={{ animationDelay: `${i * 0.5}s` }}
                   aria-label={t(`porto_alt_${i + 1}`)}
                 >
-                  <Image
+                  <img
                     src={src}
                     alt={t(`porto_alt_${i + 1}`)}
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: pos }}
                     loading="lazy"
                   />

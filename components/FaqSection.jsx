@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { useLang } from '@/context/LangContext';
+import { getGsap } from '@/lib/gsap';
 
 export default function FaqSection() {
   const sectionRef = useRef(null);
@@ -10,12 +11,10 @@ export default function FaqSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
-        gsap.from('.faq-head > *', { y: 24, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '#duvidas', start: 'top 75%', once: true } });
-        gsap.from('.faq-item', { y: 24, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.faq-list', start: 'top 75%', once: true } });
+        gsap.from('.faq-head > *', { y: 24, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', once: true } });
+        gsap.from('.faq-item', { y: 24, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.faq-list', start: 'top 60%', once: true } });
       }, sectionRef);
     };
     run();

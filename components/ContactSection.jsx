@@ -1,6 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
 import { useEffect, useRef } from "react";
+import { getGsap } from "@/lib/gsap";
 import { ArrowIcon, IgIcon, LinkedInIcon, WaIcon } from "./Icons";
 
 const WA_NUM = "554797518960";
@@ -12,16 +12,18 @@ export default function ContactSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.from(".contact-left > *", {
           y: 30,
           duration: 0.9,
           stagger: 0.1,
           ease: "power3.out",
-          scrollTrigger: { trigger: "#contato", start: "top 75%", once: true },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 60%",
+            once: true,
+          },
         });
       }, sectionRef);
     };
@@ -100,7 +102,7 @@ export default function ContactSection() {
                 </div>
                 <div className="flex-1">
                   <span className="block text-[11px] tracking-widest uppercase text-text-3 mb-1">
-                    {t("contact_ig")}
+                    {t("contact_li")}
                   </span>
                   <span className="block text-base font-medium text-ink">
                     fernandopegoraro

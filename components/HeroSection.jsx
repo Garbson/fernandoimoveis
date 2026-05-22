@@ -1,6 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
 import { useEffect, useRef } from "react";
+import { getGsap } from "@/lib/gsap";
 
 const WA = "https://wa.me/554797518960";
 
@@ -30,79 +30,84 @@ export default function HeroSection() {
     let ctx;
 
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
 
       ctx = gsap.context(() => {
         const tl = gsap.timeline({ delay: 0.2 });
 
-        tl.from(
+        tl.fromTo(
           ".hero-eyebrow",
-          { y: 20, autoAlpha: 0, duration: 0.6, ease: "power4.out" },
+          { y: 20, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.6, ease: "power4.out" },
           0,
         )
-          .from(
+          .fromTo(
             ".wave-word",
+            { y: 80, autoAlpha: 0, rotateZ: -3 },
             {
-              y: 80,
-              autoAlpha: 0,
-              rotateZ: -3,
+              y: 0,
+              autoAlpha: 1,
+              rotateZ: 0,
               duration: 0.65,
               stagger: { each: 0.05, ease: "power1.inOut" },
               ease: "back.out(1.6)",
             },
             0.25,
           )
-          .from(
+          .fromTo(
             ".hero-desc",
-            { y: 22, autoAlpha: 0, duration: 0.7, ease: "power4.out" },
+            { y: 22, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" },
             0.85,
           )
-          .from(
+          .fromTo(
             ".hero-divider",
+            { scaleX: 0 },
             {
-              scaleX: 0,
+              scaleX: 1,
               duration: 0.8,
               ease: "power3.inOut",
               transformOrigin: "left",
             },
             0.9,
           )
-          .from(
+          .fromTo(
             ".hero-stat",
+            { y: 18, autoAlpha: 0 },
             {
-              y: 18,
-              autoAlpha: 0,
+              y: 0,
+              autoAlpha: 1,
               duration: 0.55,
               stagger: 0.12,
               ease: "back.out(1.5)",
             },
             1.0,
           )
-          .from(
+          .fromTo(
             ".hero-action",
+            { y: 18, autoAlpha: 0 },
             {
-              y: 18,
-              autoAlpha: 0,
+              y: 0,
+              autoAlpha: 1,
               duration: 0.55,
               stagger: 0.1,
               ease: "back.out(1.4)",
             },
             1.1,
           )
-          .from(
+          .fromTo(
             ".hero-trust-item",
+            { x: -14, autoAlpha: 0 },
             {
-              x: -14,
-              autoAlpha: 0,
+              x: 0,
+              autoAlpha: 1,
               duration: 0.45,
               stagger: 0.08,
               ease: "power3.out",
             },
             1.25,
           )
-          .from(".hero-scroll-hint", { autoAlpha: 0, duration: 0.6 }, 1.5);
+          .fromTo(".hero-scroll-hint", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6 }, 1.5);
 
         gsap.fromTo(
           ".hero-count-12",

@@ -1,4 +1,3 @@
-"use client";
 import { translations } from "@/lib/translations";
 import {
   createContext,

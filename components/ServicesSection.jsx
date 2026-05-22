@@ -1,6 +1,6 @@
-"use client";
 import { useLang } from "@/context/LangContext";
 import { useEffect, useRef, useState } from "react";
+import { getGsap } from "@/lib/gsap";
 import { ArrowIcon } from "./Icons";
 
 const SERVICES = [
@@ -117,9 +117,7 @@ export default function ServicesSection() {
   useEffect(() => {
     let ctx;
     const run = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+      const { gsap } = await getGsap();
       ctx = gsap.context(() => {
         gsap.fromTo(".section-header-srv > *", 
           { y: 32, opacity: 0 },
@@ -130,8 +128,8 @@ export default function ServicesSection() {
             stagger: 0.12,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: "#servicos",
-              start: "top 75%",
+              trigger: sectionRef.current,
+              start: "top 60%",
               once: true,
             },
           }
@@ -158,7 +156,7 @@ export default function ServicesSection() {
             clearProps: "transform",
             scrollTrigger: {
               trigger: ".svc-grid",
-              start: "top 80%",
+              start: "top 60%",
               once: true,
             },
           }
