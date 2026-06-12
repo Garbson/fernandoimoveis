@@ -3,17 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { getGsap } from "@/lib/gsap";
 
 const PHOTOS = [
-  { src: "/images/primeiroSlide/1.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/2.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/3.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/4.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/5.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/6.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/7.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/8.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/9.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/10.webp", pos: "center 50%" },
-  { src: "/images/primeiroSlide/11.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/1.webp",  pos: "center 50%", label: "A Região em Transformação" },
+  { src: "/images/primeiroSlide/2.webp",  pos: "center 50%", label: "Novo Shopping da Meia Praia" },
+  { src: "/images/primeiroSlide/3.webp",  pos: "center 50%", label: "Vivapark" },
+  { src: "/images/primeiroSlide/4.webp",  pos: "center 50%", label: "Porto Belo Golf Resort" },
+  { src: "/images/primeiroSlide/5.webp",  pos: "center 50%", label: "Terra All Resort" },
+  { src: "/images/primeiroSlide/6.webp",  pos: "center 50%", label: "Balneário Perequê" },
+  { src: "/images/primeiroSlide/7.webp",  pos: "center 50%", label: "Capital dos Transatlânticos" },
+  { src: "/images/primeiroSlide/8.webp",  pos: "center 50%", label: "Dubai Mall Porto Belo" },
+  { src: "/images/primeiroSlide/9.webp",  pos: "center 50%", label: "Ecossistema Neymar Jr." },
+  { src: "/images/primeiroSlide/10.webp", pos: "center 50%", label: "Marina de Itapema" },
+  { src: "/images/primeiroSlide/11.webp", pos: "center 50%", label: "Senna Tower — Balneário Camboriú" },
 ];
 
 function mobileDeckTransform(offset, distance) {
@@ -167,7 +167,7 @@ export default function PortoBeloSection() {
             </svg>
           </div>
 
-          {PHOTOS.map(({ src, pos }, i) => {
+          {PHOTOS.map(({ src, pos, label }, i) => {
             let offset = i - active;
             if (offset > PHOTOS.length / 2) offset -= PHOTOS.length;
             if (offset < -PHOTOS.length / 2) offset += PHOTOS.length;
@@ -196,18 +196,18 @@ export default function PortoBeloSection() {
                   onClick={() => goTo(i)}
                   className="w-full h-full relative rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] animate-float-slow"
                   style={{ animationDelay: `${i * 0.5}s` }}
-                  aria-label={t(`porto_alt_${(i % 4) + 1}`)}
+                  aria-label={label}
                 >
                   <img
                     src={src}
-                    alt={t(`porto_alt_${(i % 4) + 1}`)}
+                    alt={label}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: pos }}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                   <span className="absolute left-4 bottom-3 text-[11px] sm:text-xs tracking-[0.12em] uppercase text-white/85">
-                    {t(`porto_alt_${(i % 4) + 1}`)}
+                    {label}
                   </span>
                 </button>
               </div>

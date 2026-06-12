@@ -90,9 +90,9 @@ function StarRating({ count }) {
 
 function TestimonialCard({ name, location, text, rating }) {
   return (
-    <div className="flex-shrink-0 w-[320px] sm:w-[360px] glass glass-hover rounded-2xl p-6 mx-3 flex flex-col gap-4">
+    <div className="glass glass-hover rounded-2xl p-6 flex flex-col gap-4 h-[260px]">
       <StarRating count={rating} />
-      <p className="text-sm leading-relaxed text-text-2 flex-1">&ldquo;{text}&rdquo;</p>
+      <p className="text-sm leading-relaxed text-text-2 flex-1 overflow-hidden line-clamp-4">&ldquo;{text}&rdquo;</p>
       <div className="flex items-center gap-3 pt-2 border-t border-white/[0.07]">
         <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold/40 to-gold/10 border border-gold/30 flex items-center justify-center text-gold font-semibold text-sm flex-shrink-0">
           {name.charAt(0)}

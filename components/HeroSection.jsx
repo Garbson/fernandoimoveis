@@ -177,7 +177,7 @@ export default function HeroSection() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-[120px] pb-24 text-center"
     >
       <div className="hero-bg absolute inset-[-10%] z-0">
-        <div className="absolute inset-0 bg-[url(/images/hero02.jpg)] sm:bg-[url(/images/porto-belo-baixio.webp)] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url(/images/hero02.jpg)] sm:bg-[url(/images/hero.JPG)] bg-cover bg-center" />
       </div>
       <div className="absolute inset-0 bg-black/15 z-0" />
       
