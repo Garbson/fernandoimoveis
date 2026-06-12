@@ -20,9 +20,9 @@ export const metadata = {
   description: 'Especialista em investimentos imobiliários no litoral de Santa Catarina. Lançamentos exclusivos em Itapema e Porto Belo.',
   keywords: 'corretor imóveis Itapema, Porto Belo, Santa Catarina, lançamentos, investimento imobiliário',
   icons: {
-    icon: '/images/logoBranca.PNG',
-    shortcut: '/images/logoBranca.PNG',
-    apple: '/images/logoBranca.PNG',
+    icon: '/images/logoBranca.webp',
+    shortcut: '/images/logoBranca.webp',
+    apple: '/images/logoBranca.webp',
   },
   openGraph: {
     title: 'Fernando Pegoraro | Investimentos Imobiliários',

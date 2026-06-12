@@ -3,10 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { getGsap } from "@/lib/gsap";
 
 const PHOTOS = [
-  { src: "/images/porto-belo-praia.webp", pos: "center 48%" },
-  { src: "/images/porto-belo-ilha.webp", pos: "center 52%" },
-  { src: "/images/porto-belo-pereque.webp", pos: "center 46%" },
-  { src: "/images/porto-belo-baixio.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/1.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/2.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/3.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/4.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/5.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/6.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/7.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/8.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/9.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/10.webp", pos: "center 50%" },
+  { src: "/images/primeiroSlide/11.webp", pos: "center 50%" },
 ];
 
 function mobileDeckTransform(offset, distance) {
@@ -80,7 +87,7 @@ export default function PortoBeloSection() {
   useEffect(() => {
     const timer = setInterval(
       () => setActive((prev) => (prev + 1) % PHOTOS.length),
-      3200,
+      5000,
     );
     return () => clearInterval(timer);
   }, []);
@@ -131,7 +138,7 @@ export default function PortoBeloSection() {
         </div>
 
         <div
-          className="porto-stage relative h-[380px] sm:h-[360px] md:h-[430px] w-full mb-9 [perspective:1400px] overflow-visible"
+          className="porto-stage relative h-[56vw] min-h-[240px] sm:h-[360px] md:h-[430px] w-full mb-9 [perspective:1400px] overflow-visible"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
@@ -169,7 +176,7 @@ export default function PortoBeloSection() {
             return (
               <div
                 key={src}
-                className="absolute top-1/2 left-1/2 w-[88%] sm:w-[74%] md:w-[62%] h-[80%] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="absolute top-1/2 left-1/2 w-[96%] sm:w-[74%] md:w-[62%] h-[88%] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   transform: isMobile
                     ? mobileDeckTransform(offset, distance)
@@ -189,18 +196,18 @@ export default function PortoBeloSection() {
                   onClick={() => goTo(i)}
                   className="w-full h-full relative rounded-2xl overflow-hidden border border-white/40 shadow-[0_14px_34px_rgba(0,0,0,.12)] animate-float-slow"
                   style={{ animationDelay: `${i * 0.5}s` }}
-                  aria-label={t(`porto_alt_${i + 1}`)}
+                  aria-label={t(`porto_alt_${(i % 4) + 1}`)}
                 >
                   <img
                     src={src}
-                    alt={t(`porto_alt_${i + 1}`)}
+                    alt={t(`porto_alt_${(i % 4) + 1}`)}
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: pos }}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                   <span className="absolute left-4 bottom-3 text-[11px] sm:text-xs tracking-[0.12em] uppercase text-white/85">
-                    {t(`porto_alt_${i + 1}`)}
+                    {t(`porto_alt_${(i % 4) + 1}`)}
                   </span>
                 </button>
               </div>

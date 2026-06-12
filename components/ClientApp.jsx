@@ -14,6 +14,7 @@ import PropertiesSection from "./PropertiesSection";
 import ServicesSection from "./ServicesSection";
 import StatsSection from "./StatsSection";
 import TickerBand from "./TickerBand";
+import TestimonialsSection from "./TestimonialsSection";
 
 export default function ClientApp() {
 
@@ -63,6 +64,7 @@ export default function ClientApp() {
         <ServicesSection />
         <PortoBeloSection />
         <PropertiesSection />
+        <TestimonialsSection />
         <CtaBand />
         <FaqSection />
         <ContactSection />

@@ -76,7 +76,7 @@ export default function AboutSection() {
             <div className="relative">
               <div className="about-photo relative overflow-hidden rounded-2xl w-full aspect-[3/4]">
                 <img
-                  src="/images/fp-chair.jpg"
+                  src="/images/fp-chair.webp"
                   alt="Fernando Pegoraro"
                   className="sobre-img w-full h-full object-cover object-top"
                   loading="lazy"

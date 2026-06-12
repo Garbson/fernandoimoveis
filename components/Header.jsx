@@ -53,7 +53,7 @@ export default function Header() {
           <a href="#" className="flex items-center gap-3 flex-shrink-0 group">
             <div className={`relative flex-shrink-0 transition-all duration-500 group-hover:scale-105 group-hover:rotate-[-3deg] ${scrolled ? "w-[56px] h-[56px]" : "w-[68px] h-[68px]"}`}>
               <img
-                src="/images/logoBranca.PNG"
+                src="/images/logoBranca.webp"
                 alt="Fernando Pegoraro"
                 className="absolute inset-0 w-full h-full object-contain"
               />

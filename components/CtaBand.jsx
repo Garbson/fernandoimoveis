@@ -37,7 +37,7 @@ export default function CtaBand() {
     <section id="cta-band" ref={sectionRef} className="relative py-[clamp(80px,12vw,160px)] overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-[-10%] cta-bg-img">
-          <img src="/images/edificios/organica3.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
+          <img src="/images/edificios/lagom/1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-center lg:object-[center_32%] brightness-[0.3]" aria-hidden />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/50 to-ink/65" />
       </div>

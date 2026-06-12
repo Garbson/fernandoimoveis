@@ -9,7 +9,7 @@ export default function TickerBand() {
   return (
     <div className="relative w-full bg-ink border-y border-ink-2 overflow-hidden py-3.5 select-none flex">
       {/* Ticker Container */}
-      <div className="flex whitespace-nowrap animate-marquee">
+      <div className="flex whitespace-nowrap animate-marquee-slow sm:animate-marquee">
         {items.map((item, i) => (
           <span key={i} className="text-gold uppercase tracking-widest text-xs md:text-sm font-body font-medium px-8 flex-shrink-0">
             {item}
@@ -17,7 +17,7 @@ export default function TickerBand() {
         ))}
       </div>
       {/* Duplicate for seamless infinite loop */}
-      <div className="flex whitespace-nowrap animate-marquee" aria-hidden="true">
+      <div className="flex whitespace-nowrap animate-marquee-slow sm:animate-marquee" aria-hidden="true">
         {items.map((item, i) => (
           <span key={`dup-${i}`} className="text-gold uppercase tracking-widest text-xs md:text-sm font-body font-medium px-8 flex-shrink-0">
             {item}

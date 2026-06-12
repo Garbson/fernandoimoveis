@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex items-center gap-3 max-w-sm">
           <div className="relative w-12 h-12 bg-white/10 rounded-lg p-2 flex items-center justify-center flex-shrink-0">
             <img
-              src="/images/logoBranca.PNG"
+              src="/images/logoBranca.webp"
               alt="Fernando Pegoraro"
               className="absolute inset-0 w-full h-full object-contain p-2"
             />
