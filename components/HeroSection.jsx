@@ -179,7 +179,7 @@ export default function HeroSection() {
       <div className="hero-bg absolute inset-[-10%] z-0">
         <div className="absolute inset-0 bg-[url(/images/hero.webp)] sm:bg-[url(/images/porto-belo-baixio.webp)] bg-cover bg-center" />
       </div>
-      <div className="absolute inset-0 bg-black/15 backdrop-blur-[2px] z-0" />
+      <div className="absolute inset-0 bg-black/15 z-0" />
       
       <div className="hero-content max-w-[860px] mx-auto px-[clamp(20px,5vw,60px)] relative z-10 w-full">
         <p className="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.28em] uppercase text-white mb-7">
