@@ -248,7 +248,7 @@ export default function PropertiesSection() {
                          style={{ animationDelay: `${i * 0.4}s` }}>
                       <div className="prop-visual relative h-full bg-cover bg-center"
                            style={{ backgroundImage: `url("${currentImg}")` }}>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/45" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
                         <span className="absolute left-4 bottom-4 text-sm sm:text-base font-medium text-white/95 tracking-wide">
                           {album.title}
                         </span>
