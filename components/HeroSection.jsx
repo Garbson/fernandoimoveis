@@ -179,7 +179,7 @@ export default function HeroSection() {
       <div className="hero-bg absolute inset-[-10%] z-0">
         <div className="absolute inset-0 bg-[url(/images/hero02.jpg)] sm:bg-[url(/images/hero.jpg)] bg-cover bg-center" />
       </div>
-      <div className="absolute inset-0 bg-black/15 z-0" />
+      <div className="absolute inset-0 bg-black/35 z-0" />
       
       <div className="hero-content max-w-[860px] mx-auto px-[clamp(20px,5vw,60px)] relative z-10 w-full">
         <p className="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.28em] uppercase text-white mb-7">
@@ -188,17 +188,17 @@ export default function HeroSection() {
         </p>
 
         <h1
-          className="font-display text-ink font-bold leading-[1.06] tracking-tight mb-8"
+          className="font-display text-white font-bold leading-[1.06] tracking-tight mb-8 [text-shadow:0_2px_12px_rgba(0,0,0,0.45)]"
           style={{ fontSize: "clamp(40px,6vw,80px)" }}
         >
           <span className="block pb-1">
-            <WaveWords text={t("hero_title_1")} className=" shimmer-text" />
+            <WaveWords text={t("hero_title_1")} className="" />
           </span>
           <span className="block pb-1">
-            <WaveWords text={t("hero_title_2")} className=" shimmer-text" />
+            <WaveWords text={t("hero_title_2")} className="" />
           </span>
           <span className="block pb-1">
-            <WaveWords text={t("hero_title_3")} className=" shimmer-text" />
+            <WaveWords text={t("hero_title_3")} className="" />
           </span>
         </h1>
       </div>
